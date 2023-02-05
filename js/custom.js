@@ -59,7 +59,9 @@ custom.newBtnClickListener = function() {
 
     custom.createBoard(sgf);
 
-    custom.scrambleBoard();
+    // custom.scrambleBoard();
+
+    custom.editor.nextNode(4);
 };
 
 custom.resetBtnClickListener = function() {
