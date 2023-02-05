@@ -56,7 +56,6 @@ custom.newBtnClickListener = function() {
 
     let sgf = custom.SGFS[custom.color][custom.randomInt(custom.SGFS[custom.color].length)];
     // let sgf = custom.SGFS.B[0];
-
     custom.createBoard(sgf);
 
     // custom.scrambleBoard();
@@ -67,7 +66,9 @@ custom.newBtnClickListener = function() {
 custom.resetBtnClickListener = function() {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
+
     custom.editor.prevNode(1000);
+    custom.editor.nextNode(4);
 };
 
 custom.randomInt = function(max) {
