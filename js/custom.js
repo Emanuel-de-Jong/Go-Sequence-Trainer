@@ -16,7 +16,6 @@ custom.SGFS = {
         "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dd];B[dp];W[pq];B[qo];W[op];B[cc];W[dc];B[cd];W[cf];B[ce];W[de];B[bf];W[cq];B[dq];W[cp];B[co];W[bo];B[bn];W[cn])",
         "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[cd];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq])",
         "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[dc];B[cq];W[cp];B[dq];W[ep];B[fq];W[qc];B[qd];W[pc];B[od];W[nb];B[gr];W[cf];B[cl];W[go];B[ci];W[pi])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[dd];B[fc];W[qq];B[pq];W[qp];B[po];W[rn];B[cf];W[ef];B[ci];W[nc];B[db];W[cc];B[hc];W[gd];B[oc];W[gc];B[gb];W[hd];B[ic];W[id];B[ec];W[ed];B[fq];W[jd];B[cn];W[jb];B[nd];W[ha])",
     ],
     W: [
         "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[dd];B[fc];W[qq];B[pq];W[qp];B[po];W[rn];B[cf];W[ef];B[ci];W[nc];B[db];W[cc];B[hc];W[gd];B[oc];W[gc];B[gb];W[hd];B[ic];W[id];B[ec];W[ed];B[fq];W[jd];B[cn];W[jb];B[nd];W[ha])",
