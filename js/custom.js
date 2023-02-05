@@ -16,19 +16,23 @@ custom.SGFS = {
 custom.init = function() {
     custom.colorElement = document.getElementById("color");
     custom.mistakesElement = document.getElementById("mistakes");
+    custom.colorSelect = document.getElementById("colorSelect");
     custom.boardElement = document.getElementById("board");
 
-    document.getElementById("new").addEventListener("click", custom.newClickListener);
-    document.getElementById("reset").addEventListener("click", custom.resetClickListener);
+    document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
+    document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
 
-    custom.newClickListener();
+    custom.newBtnClickListener();
 };
 
-custom.newClickListener = function() {
+custom.newBtnClickListener = function() {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
 
-    custom.color = custom.randomInt(2) == 1 ? "B" : "W";
+    custom.color = custom.colorSelect.value;
+    if (custom.color == "R") {
+        custom.color = custom.randomInt(2) == 1 ? "B" : "W";
+    }
     custom.colorElement.innerHTML = custom.color;
 
     // let sgf = custom.SGFS[custom.color][custom.randomInt(custom.SGFS[custom.color].length)];
@@ -39,7 +43,7 @@ custom.newClickListener = function() {
     custom.scrambleBoard();
 };
 
-custom.resetClickListener = function() {
+custom.resetBtnClickListener = function() {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
     custom.editor.prevNode(1000);
