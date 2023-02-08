@@ -9,15 +9,18 @@
 <body>
     <div id="board-div">
         <div id="info-div">
-            Color: <span id="color"></span> | Mistakes: <span id="mistakes">0</span>
+            Mistakes: <span id="mistakes">0</span>
         </div>
         <div id="control-div">
             <button id="newBtn">New</button>
             <button id="resetBtn">Reset</button>
             <select id="colorSelect">
-                <option value="R">Random</option>
-                <option value="B">Black</option>
+                <option value="A">All</option>
+                <option value="AR">All Rnd</option>
+                <option value="B" selected>Black</option>
+                <option value="BR">Black Rnd</option>
                 <option value="W">White</option>
+                <option value="WR">White Rnd</option>
             </select>
         </div>
         <div id="board"></div>

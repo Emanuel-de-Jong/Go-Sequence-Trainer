@@ -32,7 +32,6 @@ custom.SGFS = {
 
 
 custom.init = function() {
-    custom.colorElement = document.getElementById("color");
     custom.mistakesElement = document.getElementById("mistakes");
     custom.colorSelect = document.getElementById("colorSelect");
     custom.boardElement = document.getElementById("board");
@@ -47,14 +46,39 @@ custom.newBtnClickListener = function() {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
 
+    custom.lastColor = custom.color;
     custom.color = custom.colorSelect.value;
-    if (custom.color == "R") {
-        custom.color = custom.randomInt(2) == 1 ? "B" : "W";
-    }
-    custom.colorElement.innerHTML = custom.color;
 
-    let sgf = custom.SGFS[custom.color][custom.randomInt(custom.SGFS[custom.color].length)];
-    // let sgf = custom.SGFS.B[0];
+    let sgf;
+    if (custom.color[1] == "R") {
+        let color = custom.color[0];
+        if (color == "A") {
+            color = custom.randomInt(2) == 1 ? "B" : "W";
+        }
+
+        sgf = custom.SGFS[color][custom.randomInt(custom.SGFS[color].length)];
+
+    } else {
+        if (custom.lastColor && custom.lastColor == custom.color && (custom.shuffledSGFs.length - 1) > custom.shuffledSGFsIndex) {
+            custom.shuffledSGFsIndex++;
+        } else {
+            let sgfs;
+            if (custom.color[0] == "A") {
+                sgfs = custom.SGFS.B;
+                sgfs = sgfs.concat(custom.SGFS.W);
+            } else if (custom.color[0] == "B") {
+                sgfs = custom.SGFS.B;
+            } else if (custom.color[0] == "W") {
+                sgfs = custom.SGFS.W;
+            }
+
+            custom.shuffledSGFs = custom.shuffleArray([...sgfs]);
+            custom.shuffledSGFsIndex = 0;
+        }
+
+        sgf = custom.shuffledSGFs[custom.shuffledSGFsIndex];
+    }
+
     custom.createBoard(sgf);
 
     // custom.scrambleBoard();
@@ -179,4 +203,17 @@ custom.flipBoard = function() {
     });
 
     custom.editor.prevNode(1000);
+};
+
+custom.shuffleArray = function(array) {
+    let currentIndex = array.length;
+    let randomIndex;
+  
+    while (currentIndex != 0) {
+      randomIndex = custom.randomInt(currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
 };
