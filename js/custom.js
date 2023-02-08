@@ -49,15 +49,17 @@ custom.newBtnClickListener = function() {
     custom.lastColor = custom.color;
     custom.color = custom.colorSelect.value;
 
-    let sgf;
+    custom.lastSGF = custom.sgf;
+    
     if (custom.color[1] == "R") {
         let color = custom.color[0];
         if (color == "A") {
             color = custom.randomInt(2) == 1 ? "B" : "W";
         }
 
-        sgf = custom.SGFS[color][custom.randomInt(custom.SGFS[color].length)];
-
+        do {
+            custom.sgf = custom.SGFS[color][custom.randomInt(custom.SGFS[color].length)];
+        } while (custom.sgf == custom.lastSGF);
     } else {
         if (custom.lastColor && custom.lastColor == custom.color && (custom.shuffledSGFs.length - 1) > custom.shuffledSGFsIndex) {
             custom.shuffledSGFsIndex++;
@@ -76,10 +78,10 @@ custom.newBtnClickListener = function() {
             custom.shuffledSGFsIndex = 0;
         }
 
-        sgf = custom.shuffledSGFs[custom.shuffledSGFsIndex];
+        custom.sgf = custom.shuffledSGFs[custom.shuffledSGFsIndex];
     }
 
-    custom.createBoard(sgf);
+    custom.createBoard(custom.sgf);
 
     // custom.scrambleBoard();
 
