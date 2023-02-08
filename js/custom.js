@@ -64,6 +64,10 @@ custom.newBtnClickListener = function() {
         if (custom.lastColor && custom.lastColor == custom.color && (custom.shuffledSGFs.length - 1) > custom.shuffledSGFsIndex) {
             custom.shuffledSGFsIndex++;
         } else {
+            if (custom.lastColor == custom.color) {
+                alert("Cycle finished");
+            }
+
             let sgfs;
             if (custom.color[0] == "A") {
                 sgfs = custom.SGFS.B;
