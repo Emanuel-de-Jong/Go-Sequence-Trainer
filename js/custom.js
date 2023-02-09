@@ -34,6 +34,7 @@ custom.SGFS = {
 custom.init = function() {
     custom.mistakesElement = document.getElementById("mistakes");
     custom.colorSelect = document.getElementById("colorSelect");
+    custom.scrambleCheck = document.getElementById("scrambleCheck");
     custom.boardElement = document.getElementById("board");
 
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
@@ -87,7 +88,7 @@ custom.newBtnClickListener = function() {
 
     custom.createBoard(custom.sgf);
 
-    // custom.scrambleBoard();
+    if (custom.scrambleCheck.checked) custom.scrambleBoard();
 
     custom.editor.nextNode(4);
 };
