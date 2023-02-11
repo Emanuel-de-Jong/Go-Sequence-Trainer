@@ -34,7 +34,7 @@ custom.SGFS = {
 custom.init = function() {
     custom.mistakesElement = document.getElementById("mistakes");
     custom.colorSelect = document.getElementById("colorSelect");
-    custom.scrambleCheck = document.getElementById("scrambleCheck");
+    custom.scrambleSelect = document.getElementById("scrambleSelect");
     custom.boardElement = document.getElementById("board");
 
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
@@ -88,7 +88,7 @@ custom.newBtnClickListener = function() {
 
     custom.createBoard(custom.sgf);
 
-    if (custom.scrambleCheck.checked) custom.scrambleBoard();
+    if (custom.scrambleSelect.value != "off") custom.scrambleBoard();
 
     custom.editor.nextNode(4);
 };
@@ -154,12 +154,14 @@ custom.placeStone = function(x, y) {
 };
 
 custom.scrambleBoard = function() {
+    let noDef = custom.scrambleSelect.value == "noDef";
+
     let rotateCount = custom.randomInt(4);
     for (let i=0; i<rotateCount; i++) {
         custom.rotateBoard();
     }
 
-    if (custom.randomInt(2) == 1) {
+    if (custom.randomInt(2) == 1 || (noDef && rotateCount == 0)) {
         custom.flipBoard();
     }
 };
