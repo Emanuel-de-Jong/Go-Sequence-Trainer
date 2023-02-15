@@ -37,6 +37,8 @@ custom.init = function() {
     custom.scrambleSelect = document.getElementById("scrambleSelect");
     custom.boardElement = document.getElementById("board");
 
+    custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
+    custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
 
@@ -46,6 +48,9 @@ custom.init = function() {
 custom.newBtnClickListener = function() {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
+
+    custom.lastScramble = custom.scramble;
+    custom.scramble = custom.scrambleSelect.value;
 
     custom.lastColor = custom.color;
     custom.color = custom.colorSelect.value;
@@ -62,10 +67,12 @@ custom.newBtnClickListener = function() {
             custom.sgf = custom.SGFS[color][custom.randomInt(custom.SGFS[color].length)];
         } while (custom.sgf == custom.lastSGF);
     } else {
-        if (custom.lastColor && custom.lastColor == custom.color && (custom.shuffledSGFs.length - 1) > custom.shuffledSGFsIndex) {
+        if (custom.lastColor == custom.color &&
+                custom.lastScramble == custom.scramble &&
+                (custom.shuffledSGFs.length - 1) > custom.shuffledSGFsIndex) {
             custom.shuffledSGFsIndex++;
         } else {
-            if (custom.lastColor == custom.color) {
+            if (custom.lastColor == custom.color && custom.lastScramble == custom.scramble) {
                 alert("Cycle finished");
             }
 
@@ -88,7 +95,7 @@ custom.newBtnClickListener = function() {
 
     custom.createBoard(custom.sgf);
 
-    if (custom.scrambleSelect.value != "off") custom.scrambleBoard();
+    if (custom.scramble != "off") custom.scrambleBoard();
 
     custom.editor.nextNode(4);
 };
@@ -154,7 +161,7 @@ custom.placeStone = function(x, y) {
 };
 
 custom.scrambleBoard = function() {
-    let noDef = custom.scrambleSelect.value == "noDef";
+    let noDef = custom.scramble == "noDef";
 
     let rotateCount = custom.randomInt(4);
     for (let i=0; i<rotateCount; i++) {
