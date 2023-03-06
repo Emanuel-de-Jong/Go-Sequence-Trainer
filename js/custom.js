@@ -3,9 +3,9 @@ var custom = {};
 
 custom.SGF_CATEGORIES = {
     Opening: [
-        [2, 2, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
+        [2, 3, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
         [3, 2, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
-        [4, 2, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
+        [4, 1, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
     ],
 };
 
@@ -18,6 +18,7 @@ custom.init = function() {
 
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
     custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
+    custom.boardElement.addEventListener("keydown", custom.boardElementKeydownListener);
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
 
@@ -27,6 +28,20 @@ custom.init = function() {
     }
 
     custom.newBtnClickListener();
+};
+
+custom.boardElementKeydownListener = function(event) {
+    let node = custom.editor.getCurrent();
+    if (node.moveNumber > custom.trialStartMoveNum) {
+        switch (event.keyCode) {
+            // case 37: // left
+            //     custom.editor.nextNode(1);
+            //     break;
+            case 39: // right
+                custom.editor.prevNode(1);
+                break;
+        }
+    }
 };
 
 custom.newBtnClickListener = function() {
@@ -69,11 +84,15 @@ custom.newBtnClickListener = function() {
         }
     }
 
+    custom.trialStartMoveNum = (custom.sgf[0] + custom.sgf[1]) - 1;
+
     custom.createBoard(custom.sgf);
 
     if (custom.scramble != "off") custom.scrambleBoard();
 
     custom.editor.nextNode(custom.sgf[0]);
+
+    custom.boardElement.focus({ preventScroll: true });
 };
 
 custom.resetBtnClickListener = function() {
@@ -81,7 +100,9 @@ custom.resetBtnClickListener = function() {
     custom.mistakesElement.innerHTML = custom.mistakes;
 
     custom.editor.prevNode(1000);
-    custom.editor.nextNode(4);
+    custom.editor.nextNode(custom.sgf[0]);
+
+    custom.boardElement.focus({ preventScroll: true });
 };
 
 custom.randomInt = function(max) {
@@ -114,7 +135,10 @@ custom.editorListener = function(event) {
     if (event.markupChange) {
         custom.removeMarkup(event);
 
-        let nextNode = custom.editor.getCurrent().children[0];
+        let node = custom.editor.getCurrent();
+        if (node.moveNumber <= custom.trialStartMoveNum) return;
+
+        let nextNode = node.children[0];
         if (!nextNode) return;
 
         if (nextNode.move.x != event.x || nextNode.move.y != event.y) {
