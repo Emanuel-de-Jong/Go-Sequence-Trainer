@@ -55,7 +55,7 @@ custom.newBtnClickListener = function() {
             }
         }
 
-        if (custom.random == "none") {
+        if (custom.random == "off") {
             custom.setSGF(custom.SGFS[custom.sgfsIndex]);
         } else if (custom.random == "shuffled") {
             custom.setSGF(custom.shuffledSGFs[custom.sgfsIndex]);
