@@ -1,11 +1,13 @@
 var custom = {};
 
 
-custom.SGFS = [
-    "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]",
-    "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]",
-    "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]",
-];
+custom.SGF_CATEGORIES = {
+    Opening: [
+        "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]",
+        "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]",
+        "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]",
+    ],
+};
 
 
 custom.init = function() {
@@ -18,6 +20,11 @@ custom.init = function() {
     custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
+
+    custom.sgfs = [];
+    for (const sgfCategory of Object.values(custom.SGF_CATEGORIES)) {
+        custom.sgfs = custom.sgfs.concat(sgfCategory);
+    }
 
     custom.newBtnClickListener();
 };
@@ -36,12 +43,12 @@ custom.newBtnClickListener = function() {
     
     if (custom.random == "full") {
         do {
-            custom.setSGF(custom.SGFS[custom.randomInt(custom.SGFS.length)]);
+            custom.setSGF(custom.sgfs[custom.randomInt(custom.sgfs.length)]);
         } while (custom.sgf == custom.lastSGF);
     } else {
         if (custom.lastRandom == custom.random &&
                 custom.lastScramble == custom.scramble &&
-                (custom.SGFS.length - 1) > custom.sgfsIndex) {
+                (custom.sgfs.length - 1) > custom.sgfsIndex) {
             custom.sgfsIndex++;
         } else {
             if (custom.lastRandom == custom.random && custom.lastScramble == custom.scramble) {
@@ -51,12 +58,12 @@ custom.newBtnClickListener = function() {
             custom.sgfsIndex = 0;
 
             if (custom.random == "shuffled") {
-                custom.shuffledSGFs = custom.shuffleArray([...custom.SGFS]);
+                custom.shuffledSGFs = custom.shuffleArray([...custom.sgfs]);
             }
         }
 
         if (custom.random == "off") {
-            custom.setSGF(custom.SGFS[custom.sgfsIndex]);
+            custom.setSGF(custom.sgfs[custom.sgfsIndex]);
         } else if (custom.random == "shuffled") {
             custom.setSGF(custom.shuffledSGFs[custom.sgfsIndex]);
         }
