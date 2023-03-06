@@ -12,10 +12,12 @@ custom.SGF_CATEGORIES = {
 
 custom.init = function() {
     custom.mistakesElement = document.getElementById("mistakes");
+    custom.colorSelect = document.getElementById("colorSelect");
     custom.randomSelect = document.getElementById("randomSelect");
     custom.scrambleSelect = document.getElementById("scrambleSelect");
     custom.boardElement = document.getElementById("board");
 
+    custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
     custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
     custom.boardElement.addEventListener("keydown", custom.boardElementKeydownListener);
@@ -48,6 +50,9 @@ custom.newBtnClickListener = function() {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
 
+    custom.lastColor = custom.color;
+    custom.color = custom.colorSelect.value;
+
     custom.lastRandom = custom.random;
     custom.random = custom.randomSelect.value;
 
@@ -61,12 +66,15 @@ custom.newBtnClickListener = function() {
             custom.sgf = custom.sgfs[custom.randomInt(custom.sgfs.length)];
         } while (custom.sgf == custom.lastSGF);
     } else {
-        if (custom.lastRandom == custom.random &&
+        if (custom.lastColor == custom.color &&
+                custom.lastRandom == custom.random &&
                 custom.lastScramble == custom.scramble &&
                 (custom.sgfs.length - 1) > custom.sgfsIndex) {
             custom.sgfsIndex++;
         } else {
-            if (custom.lastRandom == custom.random && custom.lastScramble == custom.scramble) {
+            if (custom.lastColor == custom.color &&
+                    custom.lastRandom == custom.random &&
+                    custom.lastScramble == custom.scramble) {
                 alert("Cycle finished");
             }
 
@@ -121,7 +129,30 @@ custom.createBoard = function(sgf) {
 	};
 
     if (sgf) {
-        settings.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgf[2] + ")";
+        let sgfText = sgf[2];
+
+        let color = custom.color;
+        if (color == "random") {
+            color = custom.randomInt(2) == 1 ? "black" : "white";
+        }
+
+        if (color == "white") {
+            let newSGFText = "";
+            for (let i=0; i<sgfText.length; i++) {
+                let char = sgfText[i];
+                if (char == 'B') {
+                    char = 'W';
+                } else if (char == 'W') {
+                    char = 'B';
+                }
+
+                newSGFText += char;
+            }
+
+            sgfText = newSGFText;
+        }
+
+        settings.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgfText + ")";
     }
 
     besogo.create(custom.boardElement, settings);
