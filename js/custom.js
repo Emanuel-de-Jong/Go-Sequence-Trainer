@@ -3,10 +3,19 @@ var custom = {};
 
 custom.SGF_CATEGORIES = {
     Opening: [
-        [2, 3, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
-        [3, 2, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
-        [4, 1, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
+        [4, 0, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
+        [4, 0, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
+        [4, 0, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
     ],
+    ShoulderHit: [],
+    DaidaigeimaInvasion: [],
+    Enclosure3_4KnightProbing: [],
+    Enclosure3_4LargeKnightProbing: [],
+    Enclosure3_4OneSpaceProbing: [],
+    Enclosure3_4TwoSpaceProbing: [],
+    Joseki4_4KickInvasion: [],
+    AIJoseki: [],
+    CornerLifeDeath: [],
 };
 
 
