@@ -3,9 +3,9 @@ var custom = {};
 
 custom.SGF_CATEGORIES = {
     Opening: [
-        "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]",
-        "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]",
-        "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]",
+        [2, 2, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
+        [3, 2, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
+        [4, 2, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
     ],
 };
 
@@ -43,7 +43,7 @@ custom.newBtnClickListener = function() {
     
     if (custom.random == "full") {
         do {
-            custom.setSGF(custom.sgfs[custom.randomInt(custom.sgfs.length)]);
+            custom.sgf = custom.sgfs[custom.randomInt(custom.sgfs.length)];
         } while (custom.sgf == custom.lastSGF);
     } else {
         if (custom.lastRandom == custom.random &&
@@ -63,9 +63,9 @@ custom.newBtnClickListener = function() {
         }
 
         if (custom.random == "off") {
-            custom.setSGF(custom.sgfs[custom.sgfsIndex]);
+            custom.sgf = custom.sgfs[custom.sgfsIndex];
         } else if (custom.random == "shuffled") {
-            custom.setSGF(custom.shuffledSGFs[custom.sgfsIndex]);
+            custom.sgf = custom.shuffledSGFs[custom.sgfsIndex];
         }
     }
 
@@ -73,11 +73,7 @@ custom.newBtnClickListener = function() {
 
     if (custom.scramble != "off") custom.scrambleBoard();
 
-    custom.editor.nextNode(4);
-};
-
-custom.setSGF = function(sgfMoves) {
-    custom.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgfMoves + ")";
+    custom.editor.nextNode(custom.sgf[0]);
 };
 
 custom.resetBtnClickListener = function() {
@@ -104,7 +100,7 @@ custom.createBoard = function(sgf) {
 	};
 
     if (sgf) {
-        settings.sgf = sgf;
+        settings.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgf[2] + ")";
     }
 
     besogo.create(custom.boardElement, settings);
