@@ -3,30 +3,30 @@ var custom = {};
 
 custom.SGFS = {
     B: [
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb])",
-        // "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[cp];B[pp];W[cd];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl])",
-        // "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[cp];B[pp];W[dc];B[ep];W[eq];B[fq];W[dq];B[fp];W[cn];B[ce];W[qq];B[pq];W[qp];B[qn];W[qo];B[po];W[rn];B[qr];W[rr])",
-        // "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[cp];B[pp];W[dd];B[eq];W[do];B[cc];W[dc];B[cd];W[cf];B[bf];W[cg];B[bg];W[ch];B[nq];W[qc];B[qd];W[pc];B[nc];W[oc])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dc];B[dp];W[pp];B[ce];W[ed];B[qq];W[pq];B[qp];W[qn];B[qo];W[po];B[rn];W[qc];B[pc];W[qd];B[qe];W[re];B[rf];W[qf])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dc];B[dp];W[pq];B[qo];W[op];B[ce];W[fd];B[qf];W[cn];B[fp];W[ch];B[pl];W[hq];B[jq];W[ho];B[mq];W[jo];B[lo];W[on])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dc];B[dp];W[qp];B[oq];W[po];B[ce];W[ed];B[hc];W[nc];B[kc];W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[oc];W[qf])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dd];B[dp];W[pp];B[nq];W[qn];B[pq];W[qq];B[qr];W[oq];B[pr];W[op];B[or];W[qc];B[qd];W[pc];B[nc];W[oc];B[od];W[nb])",
-        // "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dd];B[dp];W[pq];B[qo];W[op];B[cc];W[dc];B[cd];W[cf];B[ce];W[de];B[bf];W[cq];B[dq];W[cp];B[co];W[bo];B[bn];W[cn])",
-        // "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[cd];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[dc];B[cq];W[cp];B[dq];W[ep];B[fq];W[qc];B[qd];W[pc];B[od];W[nb];B[gr];W[cf];B[cl];W[go];B[ci];W[pi])",
+        "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]",
+        "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]",
+        "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]",
+        // "B[pd];W[cp];B[pp];W[cd];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]",
+        // "B[pd];W[cp];B[pp];W[dc];B[ep];W[eq];B[fq];W[dq];B[fp];W[cn];B[ce];W[qq];B[pq];W[qp];B[qn];W[qo];B[po];W[rn];B[qr];W[rr]",
+        // "B[pd];W[cp];B[pp];W[dd];B[eq];W[do];B[cc];W[dc];B[cd];W[cf];B[bf];W[cg];B[bg];W[ch];B[nq];W[qc];B[qd];W[pc];B[nc];W[oc]",
+        "B[pd];W[dc];B[dp];W[pp];B[ce];W[ed];B[qq];W[pq];B[qp];W[qn];B[qo];W[po];B[rn];W[qc];B[pc];W[qd];B[qe];W[re];B[rf];W[qf]",
+        "B[pd];W[dc];B[dp];W[pq];B[qo];W[op];B[ce];W[fd];B[qf];W[cn];B[fp];W[ch];B[pl];W[hq];B[jq];W[ho];B[mq];W[jo];B[lo];W[on]",
+        "B[pd];W[dc];B[dp];W[qp];B[oq];W[po];B[ce];W[ed];B[hc];W[nc];B[kc];W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[oc];W[qf]",
+        "B[pd];W[dd];B[dp];W[pp];B[nq];W[qn];B[pq];W[qq];B[qr];W[oq];B[pr];W[op];B[or];W[qc];B[qd];W[pc];B[nc];W[oc];B[od];W[nb]",
+        // "B[pd];W[dd];B[dp];W[pq];B[qo];W[op];B[cc];W[dc];B[cd];W[cf];B[ce];W[de];B[bf];W[cq];B[dq];W[cp];B[co];W[bo];B[bn];W[cn]",
+        // "B[pd];W[dp];B[pp];W[cd];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]",
+        "B[pd];W[dp];B[pp];W[dc];B[cq];W[cp];B[dq];W[ep];B[fq];W[qc];B[qd];W[pc];B[od];W[nb];B[gr];W[cf];B[cl];W[go];B[ci];W[pi]",
     ],
     W: [
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pp];W[dd];B[fc];W[qq];B[pq];W[qp];B[po];W[rn];B[cf];W[ef];B[ci];W[nc];B[db];W[cc];B[hc];W[gd];B[oc];W[gc];B[gb];W[hd];B[ic];W[id];B[ec];W[ed];B[fq];W[jd];B[cn];W[jb];B[nd];W[ha])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[pq];W[dd];B[cq];W[dq];B[cp];W[do];B[bn];W[qc];B[qd];W[pc];B[od];W[nc];B[rc];W[nd];B[qn];W[nf];B[cm];W[iq])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[pd];W[dp];B[qp];W[dd];B[cc];W[dc];B[cd];W[de];B[bf];W[qc];B[pc];W[qd];B[pe];W[rf];B[ic];W[oq];B[cg];W[po];B[qo];W[pn])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[qd];W[dd];B[cp];W[pp];B[fq];W[oc];B[pf];W[fc];B[nq];W[pn];B[cf];W[oq];B[cd];W[cc];B[bc];W[cb];B[de];W[bd];B[ce];W[bb])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[qd];W[dd];B[dp];W[pp];B[nc];W[cq];B[dq];W[cp];B[cn];W[co];B[do];W[bn];B[qn];W[nq];B[fc];W[df];B[qp];W[qq];B[rq];W[qo])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[qd];W[dd];B[dq];W[pp];B[dn];W[oc];B[pf];W[fc];B[cf];W[pn];B[cd];W[cc];B[bc];W[cb];B[de];W[bd];B[ce];W[bb];B[di];W[jq])",
-        // "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[qd];W[dd];B[pp];W[dp];B[cq];W[dq];B[cp];W[do];B[bn];W[qq];B[pq];W[qp];B[po];W[rn];B[iq];W[oc];B[cm];W[pe];B[qe];W[pf])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[qd];W[dd];B[pq];W[dq];B[cc];W[cd];B[dc];W[ed];B[fb];W[oc];B[qn];W[cn];B[pc];W[od];B[pf];W[kd];B[gc];W[di];B[jq];W[hq])",
-        "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];B[qd];W[dd];B[qp];W[dp];B[cq];W[cp];B[dq];W[ep];B[fq];W[oc];B[gr];W[oq];B[pf];W[fc];B[cj];W[cl];B[cg];W[ce];B[gc];W[gb])",
+        "B[pd];W[dp];B[pp];W[dd];B[fc];W[qq];B[pq];W[qp];B[po];W[rn];B[cf];W[ef];B[ci];W[nc];B[db];W[cc];B[hc];W[gd];B[oc];W[gc];B[gb];W[hd];B[ic];W[id];B[ec];W[ed];B[fq];W[jd];B[cn];W[jb];B[nd];W[ha]",
+        "B[pd];W[dp];B[pq];W[dd];B[cq];W[dq];B[cp];W[do];B[bn];W[qc];B[qd];W[pc];B[od];W[nc];B[rc];W[nd];B[qn];W[nf];B[cm];W[iq]",
+        "B[pd];W[dp];B[qp];W[dd];B[cc];W[dc];B[cd];W[de];B[bf];W[qc];B[pc];W[qd];B[pe];W[rf];B[ic];W[oq];B[cg];W[po];B[qo];W[pn]",
+        "B[qd];W[dd];B[cp];W[pp];B[fq];W[oc];B[pf];W[fc];B[nq];W[pn];B[cf];W[oq];B[cd];W[cc];B[bc];W[cb];B[de];W[bd];B[ce];W[bb]",
+        "B[qd];W[dd];B[dp];W[pp];B[nc];W[cq];B[dq];W[cp];B[cn];W[co];B[do];W[bn];B[qn];W[nq];B[fc];W[df];B[qp];W[qq];B[rq];W[qo]",
+        "B[qd];W[dd];B[dq];W[pp];B[dn];W[oc];B[pf];W[fc];B[cf];W[pn];B[cd];W[cc];B[bc];W[cb];B[de];W[bd];B[ce];W[bb];B[di];W[jq]",
+        // "B[qd];W[dd];B[pp];W[dp];B[cq];W[dq];B[cp];W[do];B[bn];W[qq];B[pq];W[qp];B[po];W[rn];B[iq];W[oc];B[cm];W[pe];B[qe];W[pf]",
+        "B[qd];W[dd];B[pq];W[dq];B[cc];W[cd];B[dc];W[ed];B[fb];W[oc];B[qn];W[cn];B[pc];W[od];B[pf];W[kd];B[gc];W[di];B[jq];W[hq]",
+        "B[qd];W[dd];B[qp];W[dp];B[cq];W[cp];B[dq];W[ep];B[fq];W[oc];B[gr];W[oq];B[pf];W[fc];B[cj];W[cl];B[cg];W[ce];B[gc];W[gb]",
     ]
 }
 
@@ -64,7 +64,7 @@ custom.newBtnClickListener = function() {
         }
 
         do {
-            custom.sgf = custom.SGFS[color][custom.randomInt(custom.SGFS[color].length)];
+            custom.setSGF(custom.SGFS[color][custom.randomInt(custom.SGFS[color].length)]);
         } while (custom.sgf == custom.lastSGF);
     } else {
         if (custom.lastColor == custom.color &&
@@ -90,7 +90,7 @@ custom.newBtnClickListener = function() {
             custom.shuffledSGFsIndex = 0;
         }
 
-        custom.sgf = custom.shuffledSGFs[custom.shuffledSGFsIndex];
+        custom.setSGF(custom.shuffledSGFs[custom.shuffledSGFsIndex]);
     }
 
     custom.createBoard(custom.sgf);
@@ -98,6 +98,10 @@ custom.newBtnClickListener = function() {
     if (custom.scramble != "off") custom.scrambleBoard();
 
     custom.editor.nextNode(4);
+};
+
+custom.setSGF = function(sgfMoves) {
+    custom.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgfMoves + ")";
 };
 
 custom.resetBtnClickListener = function() {
