@@ -38,7 +38,22 @@ custom.SGF_CATEGORIES = {
     },
 
     Enclosure3_4Probing: {
-        Knight: [],
+        Knight: [
+            [8, 10, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[qe];W[pm];B[nq];W[qi])"],
+            [8, 10, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[qe];W[qc];B[pc];W[qb];B[re];W[sc])"],
+            [8, 11, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[re];W[qe];B[rc];W[pd];B[qc];W[rf];B[sd])"],
+            [8, 11, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[re];W[qe];B[rf];W[pd];B[qc];W[pc];B[qb];W[pb];B[md])"],
+            [8, 11, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[re];W[qe];B[pe];W[qf];B[rf];W[qg];B[rg];W[qh];B[qc];W[pn];B[nq];W[qj])"],
+            [8, 9, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[rc];W[pd];B[qc])"],
+            [8, 9, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[qc];W[qe];B[pe];W[qf])"],
+            [5, 8, "B[qd]PL[B];B[oc]PL[B];B[jd]PL[B];B[pj];W[pc];B[pd];W[ob];B[nc];W[qc])"],
+            [5, 8, "B[qd]PL[B];B[oc]PL[B];B[jd]PL[B];B[pj];W[pc];B[pd];W[ob];B[pb];W[nc];B[od];W[pa];B[qb];W[lc])"],
+            [5, 8, "B[qd]PL[B];B[oc]PL[B];B[jd]PL[B];B[pj];W[qc];B[pc];W[rd];B[qe];W[qb])"],
+            [5, 8, "B[qd]PL[B];B[oc]PL[B];B[jd]PL[B];B[pj];W[qc];B[pc];W[rd];B[rc];W[qe];B[pd];W[sc];B[rb];W[qh])"],
+            [3, 4, "B[qd]PL[B];B[oc];W[qe];B[pe];W[qf];B[rd];W[pf];B[oe];W[qj])"],
+            [3, 4, "B[qd]PL[B];B[oc];W[qe];B[rd])"],
+            [3, 4, "B[qd]PL[B];B[oc];W[qe];B[pd];W[rd];B[rc];W[qh])"],
+        ],
         LargeKnight: [],
         OneSpace: [],
         TwoSpace: [],
