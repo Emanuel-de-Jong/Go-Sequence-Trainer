@@ -2,13 +2,24 @@ var custom = {};
 
 
 custom.SGF_CATEGORIES = {
-    Opening: [
-        [4, 4, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
-        [4, 4, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
-        [4, 4, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
-    ],
-
-    ShoulderHit: [],
+    ShoulderHit: {
+        ToSide: [
+            [6, 7, "B[pq]PL[B];B[pn]PL[B];B[jq];W[kp];B[kq];W[lp];B[mr]"],
+            [6, 7, "B[pq]PL[B];B[pn]PL[B];B[jq];W[kp];B[kq];W[lp];B[jp];W[kn];B[jo];W[mm]"],
+            [6, 8, "B[pq]PL[B];B[pn]PL[B];B[jq];W[kp];B[kq];W[mp];B[lq];W[mn];B[lp];W[lo];B[ko];W[kn];B[jo]"],
+            [6, 11, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[kq];W[mp];B[lq];W[mm];B[lp];W[lo];B[mo];W[no];B[mn];W[ln]"],
+            [6, 11, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[kq];W[mp];B[lq];W[mm];B[lp];W[lo];B[ko];W[kn];B[jo];W[mo]"],
+            [6, 7, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[kq];W[mp];B[lp];W[lo];B[lq];W[mm]"],
+        ],
+        ToCenter: [
+            [6, 6, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[jp];W[ko];B[lr];W[jo]"],
+            [6, 6, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[jp];W[kn];B[ko];W[lo];B[jo];W[mm];B[mq]"],
+        ],
+        Base: [
+            [10, 11, "B[pq]PL[B];B[qo]PL[B];B[pd]PL[B];B[qg]PL[B];B[jq];W[qm]PL[W];W[qj];B[pk];W[qk];B[pm];W[pn];B[qn];W[pl];B[om]"],
+            [10, 11, "B[pq]PL[B];B[qo]PL[B];B[pd]PL[B];B[qg]PL[B];B[jq];W[qm]PL[W];W[qj];B[pk];W[qk];B[pm];W[pl];B[ol];W[ql];B[pn]"],
+        ],
+    },
 
     DaidaigeimaInvasion: [],
 
@@ -27,6 +38,8 @@ custom.SGF_CATEGORIES = {
     AIJoseki: [],
 
     CornerLifeDeath: [],
+
+    Other: [],
 };
 
 
