@@ -21,7 +21,21 @@ custom.SGF_CATEGORIES = {
         ],
     },
 
-    DaidaigeimaInvasion: [],
+    DaidaigeimaInvasion: {
+        Attatch: [
+            [9, 11, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[io];W[iq];B[gp];W[jq];B[kp];W[kq];B[lp];W[mq]"],
+            [9, 13, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[iq];W[io];B[jq];W[gp];B[hr];W[ho])"],
+            [9, 13, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[iq];W[io];B[hr];W[jq];B[gq];W[kp])"],
+            [10, 14, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn];B[ck];W[hq];B[hp];W[iq];B[ip];W[jq];B[gq];W[lq];B[kp];W[mr])"],
+            [10, 14, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn];B[ck];W[hq];B[hp];W[iq];B[ip];W[jq];B[dq];W[kp];B[cp]"],
+            [15, 15, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn];B[pn];W[qn];B[pm];W[qm];B[pl];W[ql]PL[W];W[hq];B[hp];W[iq];B[jq];W[ip];B[io];W[gp];B[ho];W[gq];B[kn])"],
+        ],
+        ShoulderHit: [
+            [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[ip];B[jr];W[ir])"],
+            [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[kr])"],
+            [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[kp]"],
+        ],
+    },
 
     Enclosure3_4Probing: {
         Knight: [],
