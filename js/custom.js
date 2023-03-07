@@ -3,18 +3,29 @@ var custom = {};
 
 custom.SGF_CATEGORIES = {
     Opening: [
-        [4, 0, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
-        [4, 0, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
-        [4, 0, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
+        [4, 4, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
+        [4, 4, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
+        [4, 4, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
     ],
+
     ShoulderHit: [],
+
     DaidaigeimaInvasion: [],
-    Enclosure3_4KnightProbing: [],
-    Enclosure3_4LargeKnightProbing: [],
-    Enclosure3_4OneSpaceProbing: [],
-    Enclosure3_4TwoSpaceProbing: [],
-    Joseki4_4KickInvasion: [],
+
+    Enclosure3_4Probing: {
+        Knight: [],
+        LargeKnight: [],
+        OneSpace: [],
+        TwoSpace: [],
+    },
+
+    Joseki4_4KickInvasion: {
+        AttackerHighBase: [],
+        AttackerLowBase: [],
+    },
+
     AIJoseki: [],
+
     CornerLifeDeath: [],
 };
 
@@ -35,7 +46,13 @@ custom.init = function() {
 
     custom.sgfs = [];
     for (const sgfCategory of Object.values(custom.SGF_CATEGORIES)) {
-        custom.sgfs = custom.sgfs.concat(sgfCategory);
+        if (Array.isArray(sgfCategory)) {
+            custom.sgfs = custom.sgfs.concat(sgfCategory);
+        } else {
+            for (const sgfSubCategory of Object.values(sgfCategory)) {
+                custom.sgfs = custom.sgfs.concat(sgfSubCategory);
+            }
+        }
     }
 
     custom.newBtnClickListener();
@@ -43,7 +60,7 @@ custom.init = function() {
 
 custom.boardElementKeydownListener = function(event) {
     let node = custom.editor.getCurrent();
-    if (node.moveNumber > custom.trialStartMoveNum) {
+    if (node.moveNumber > (custom.sgf[1] - 1)) {
         switch (event.keyCode) {
             // case 37: // left
             //     custom.editor.nextNode(1);
@@ -100,8 +117,6 @@ custom.newBtnClickListener = function() {
             custom.sgf = custom.shuffledSGFs[custom.sgfsIndex];
         }
     }
-
-    custom.trialStartMoveNum = (custom.sgf[0] + custom.sgf[1]) - 1;
 
     custom.createBoard(custom.sgf);
 
@@ -176,7 +191,7 @@ custom.editorListener = function(event) {
         custom.removeMarkup(event);
 
         let node = custom.editor.getCurrent();
-        if (node.moveNumber <= custom.trialStartMoveNum) return;
+        if (node.moveNumber <= (custom.sgf[1] - 1)) return;
 
         let nextNode = node.children[0];
         if (!nextNode) return;
