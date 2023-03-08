@@ -65,7 +65,16 @@ custom.SGF_CATEGORIES = {
             [3, 4, "PL[B];B[qd]PL[B];B[nc];W[pd];B[pc];W[qe];B[od];W[pe];B[rd]"],
             [7, 7, "B[qd]PL[B];B[nc]PL[B];B[pj]PL[B];B[id]PL[B];B[mj]PL[B];B[ig];W[od];B[oc];W[pd];B[pc];W[qe];B[rd];W[of]"],
         ],
-        OneSpace: [],
+        OneSpace: [
+            [5, 5, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[qc];B[pc];W[rd];B[rc];W[qe];B[qb];W[qh]"],
+            [5, 7, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[pc];B[oc];W[qc];B[pd];W[rd];B[re];W[rb];B[sd];W[sc]"],
+            [5, 7, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[pc];B[oc];W[pf];B[pd]"],
+            [5, 6, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[pc];B[qc];W[mc];B[oc]"],
+            [5, 7, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[pc];B[pd];W[oc]"],
+            [5, 7, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[pc];B[pd];W[mc];B[oc]"],
+            [5, 5, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[nd];B[oc];W[nf]"],
+            [4, 4, "B[qd]PL[B];B[od]PL[B];B[jc];W[qe];B[pe];W[qf];B[rd];W[pf];B[of];W[og];B[nf];W[qj]"],
+        ],
         TwoSpace: [],
     },
 
