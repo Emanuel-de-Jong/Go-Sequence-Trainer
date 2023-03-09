@@ -85,8 +85,24 @@ custom.SGF_CATEGORIES = {
     },
 
     Joseki4_4KickInvasion: {
-        AttackerHighBase: [],
-        AttackerLowBase: [],
+        AttackerHighBase: [
+            [8, 8, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[pd];W[cq];B[er];W[co];B[cn];W[bn];B[bm];W[bo];B[do];W[br]"],
+            [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hq];W[hp];B[fr];W[gr];B[er];W[gq]"],
+            [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hq];W[hp];B[fr];W[gr];B[er];W[pc];B[gq];W[iq];B[hr];W[qf];B[gp];W[pj]"],
+            [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hr];W[hq];B[iq];W[ip];B[gq];W[hp];B[fr];W[gp];B[gr];W[cq]"],
+            [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hr];W[hq];B[fr];W[gr];B[gs];W[gq];B[dr]"],
+        ],
+        AttackerLowBase: [
+            [7, 10, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[ip];B[fr]"],
+            [7, 15, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq];B[pg]PL[B];B[gp];W[ho];B[go];W[gq];B[hn]"],
+            [7, 23, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq]PL[W];W[pg];B[kp];W[lq];B[lp];W[mq];B[gp];W[ho];B[go];W[gq];B[hn];W[io];B[jn]"],
+            [7, 23, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq]PL[W];W[pg];B[kp];W[lq];B[lp];W[mq];B[gp];W[ho];B[go];W[hn];B[gq];W[cq]"],
+            [7, 14, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[ho];B[jp];W[lq]"],
+            [7, 8, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hr];B[fr];W[gr];B[er];W[hp]"],
+            [7, 11, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[fr];B[hp];W[fn];B[hn];W[fl];B[mq]"],
+            [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[fr];B[hp];W[fn];B[jp];W[kp];B[kq]"],
+            [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[fr];B[iq];W[jp];B[ho];W[fn]"],
+        ],
     },
 
     Joseki4_4SanSanContinuation: [],
