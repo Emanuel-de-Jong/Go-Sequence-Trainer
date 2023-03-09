@@ -75,7 +75,13 @@ custom.SGF_CATEGORIES = {
             [5, 5, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[nd];B[oc];W[nf]"],
             [4, 4, "B[qd]PL[B];B[od]PL[B];B[jc];W[qe];B[pe];W[qf];B[rd];W[pf];B[of];W[og];B[nf];W[qj]"],
         ],
-        TwoSpace: [],
+        TwoSpace: [
+            [3, 3, "B[qd]PL[B];B[nd];W[oc];B[nc];W[qc];B[pd];W[pc];B[od];W[rd];B[re];W[rc]"],
+            [4, 7, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[pe];W[od];B[oc]"],
+            [4, 10, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[oc];W[rd];B[qe];W[qb];B[re];W[sc]"],
+            [4, 10, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[oc];W[rd];B[qe];W[re];B[qb];W[qf];B[rc];W[pe];B[qc];W[qi]"],
+            [4, 8, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[oc];W[pf];B[rd];W[pi]"],
+        ],
     },
 
     Joseki4_4KickInvasion: {
@@ -83,9 +89,11 @@ custom.SGF_CATEGORIES = {
         AttackerLowBase: [],
     },
 
-    AIJoseki: [],
+    Joseki4_4SanSanContinuation: [],
 
     CornerLifeDeath: [],
+
+    AIJoseki: [],
 
     Other: [],
 };
