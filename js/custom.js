@@ -105,6 +105,16 @@ custom.SGF_CATEGORIES = {
         ],
     },
 
+    Joseki3_4HighApproachInvasion: {
+        AttackerHighBase: [
+            [9, 9, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jd];B[lb];W[lc];B[kc];W[kd];B[mc];W[ld];B[nb];W[md];B[mb]"],
+        ],
+        AttackerLowBase: [
+            [9, 13, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jc];B[lc]SBKV[47.04];W[pd];B[qc];W[ld];B[lb];W[nb];B[kd];W[kc];B[jd];W[ic];B[id];W[hc];B[md];W[le];B[me];W[lf];B[mc];W[mf];B[ne];W[of];B[oe];W[pe];B[pf];W[nf]"],
+            [9, 13, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jc];B[lc];W[pd];B[qc];W[ld];B[kd];W[kc];B[le];W[md]"],
+        ],
+    },
+
     Joseki4_4SanSanContinuation: [],
 
     CornerLifeDeath: [],
