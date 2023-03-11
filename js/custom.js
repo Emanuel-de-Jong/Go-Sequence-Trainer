@@ -257,7 +257,7 @@ custom.createBoard = function(sgf) {
     let settings = {
 		resize: "auto",
 		orient: "portrait",
-		panels: "tool+control+tree",
+		panels: "control+tree",
 		coord: "western",
         tool: "cross",
 		variants: 2,
@@ -296,6 +296,16 @@ custom.createBoard = function(sgf) {
     custom.editor = custom.boardElement.besogoEditor;
 
     custom.editor.addListener(custom.editorListener);
+
+    let besogoControl = document.getElementsByClassName("besogo-control")[0];
+    besogoControl.insertAdjacentHTML("beforeend", '<input type="button" value="Pass" id="passBtn">');
+    document.getElementById("passBtn").addEventListener("click", custom.passBtnClickListener);
+};
+
+custom.passBtnClickListener = function() {
+    custom.editor.setTool("auto");
+    custom.editor.click(0, 0, false);
+    custom.editor.setTool("cross");
 };
 
 custom.editorListener = function(event) {
