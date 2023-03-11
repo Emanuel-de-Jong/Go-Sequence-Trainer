@@ -131,6 +131,8 @@ custom.init = function() {
     custom.randomSelect = document.getElementById("randomSelect");
     custom.scrambleSelect = document.getElementById("scrambleSelect");
     custom.boardElement = document.getElementById("board");
+    custom.sgfStartTextElement = document.getElementById("sgfStartText");
+    custom.sgfEndTextElement = document.getElementById("sgfEndText");
 
     custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
@@ -180,6 +182,18 @@ custom.newBtnClickListener = function() {
     custom.lastScramble = custom.scramble;
     custom.scramble = custom.scrambleSelect.value;
 
+    custom.setNewSGF();
+
+    custom.createBoard(custom.sgf);
+
+    if (custom.scramble != "off") custom.scrambleBoard();
+
+    custom.editor.nextNode(custom.sgf[0]);
+
+    custom.boardElement.focus({ preventScroll: true });
+};
+
+custom.setNewSGF = function() {
     custom.lastSGF = custom.sgf;
     
     if (custom.random == "full") {
@@ -213,13 +227,16 @@ custom.newBtnClickListener = function() {
         }
     }
 
-    custom.createBoard(custom.sgf);
+    custom.setSGFText();
+};
 
-    if (custom.scramble != "off") custom.scrambleBoard();
+custom.setSGFText = function() {
+    custom.sgfStartTextElement.innerHTML = "";
+    custom.sgfEndTextElement.innerHTML = "";
 
-    custom.editor.nextNode(custom.sgf[0]);
-
-    custom.boardElement.focus({ preventScroll: true });
+    if (custom.sgf[3]) {
+        custom.sgfStartTextElement.innerHTML = custom.sgf[3];
+    }
 };
 
 custom.resetBtnClickListener = function() {
@@ -240,7 +257,7 @@ custom.createBoard = function(sgf) {
     let settings = {
 		resize: "auto",
 		orient: "portrait",
-		panels: "control+tree",
+		panels: "tool+control+tree",
 		coord: "western",
         tool: "cross",
 		variants: 2,
@@ -248,7 +265,7 @@ custom.createBoard = function(sgf) {
 	};
 
     if (sgf) {
-        let sgfText = sgf[2];
+        let sgfCode = sgf[2];
 
         let color = custom.color;
         if (color == "random") {
@@ -256,22 +273,22 @@ custom.createBoard = function(sgf) {
         }
 
         if (color == "white") {
-            let newSGFText = "";
-            for (let i=0; i<sgfText.length; i++) {
-                let char = sgfText[i];
+            let newSGFCode = "";
+            for (let i=0; i<sgfCode.length; i++) {
+                let char = sgfCode[i];
                 if (char == 'B') {
                     char = 'W';
                 } else if (char == 'W') {
                     char = 'B';
                 }
 
-                newSGFText += char;
+                newSGFCode += char;
             }
 
-            sgfText = newSGFText;
+            sgfCode = newSGFCode;
         }
 
-        settings.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgfText + ")";
+        settings.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgfCode + ")";
     }
 
     besogo.create(custom.boardElement, settings);
@@ -298,10 +315,21 @@ custom.editorListener = function(event) {
 
         custom.editor.nextNode(1);
     }
+    else if (event.navChange) {
+        if (!custom.editor.getCurrent().children[0]) {
+            custom.sgfFinished();
+        }
+    }
 };
 
 custom.removeMarkup = function(coord) {
     custom.editor.getCurrent().markup[(coord.x - 1) * 19 + (coord.y - 1)] = 0;
+};
+
+custom.sgfFinished = function() {
+    if (custom.sgf[4]) {
+        custom.sgfEndTextElement.innerHTML = custom.sgf[4];
+    }
 };
 
 custom.placeStone = function(x, y) {
