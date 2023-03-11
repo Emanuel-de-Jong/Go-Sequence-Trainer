@@ -132,7 +132,6 @@ custom.init = function() {
     custom.scrambleSelect = document.getElementById("scrambleSelect");
     custom.boardElement = document.getElementById("board");
     custom.sgfStartTextElement = document.getElementById("sgfStartText");
-    custom.sgfEndTextElement = document.getElementById("sgfEndText");
 
     custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
@@ -226,17 +225,6 @@ custom.setNewSGF = function() {
             custom.sgf = custom.shuffledSGFs[custom.sgfsIndex];
         }
     }
-
-    custom.setSGFText();
-};
-
-custom.setSGFText = function() {
-    custom.sgfStartTextElement.innerHTML = "";
-    custom.sgfEndTextElement.innerHTML = "";
-
-    if (custom.sgf[3]) {
-        custom.sgfStartTextElement.innerHTML = custom.sgf[3];
-    }
 };
 
 custom.resetBtnClickListener = function() {
@@ -257,7 +245,7 @@ custom.createBoard = function(sgf) {
     let settings = {
 		resize: "auto",
 		orient: "portrait",
-		panels: "control+tree",
+		panels: "control+tree+comment",
 		coord: "western",
         tool: "cross",
 		variants: 2,
@@ -300,6 +288,12 @@ custom.createBoard = function(sgf) {
     let besogoControl = document.getElementsByClassName("besogo-control")[0];
     besogoControl.insertAdjacentHTML("beforeend", '<input type="button" value="Pass" id="passBtn">');
     document.getElementById("passBtn").addEventListener("click", custom.passBtnClickListener);
+
+    document.querySelector('input[value="Comment"]').remove();
+    document.querySelector('input[value="Edit Info"]').remove();
+    document.querySelector('input[value="Info"]').remove();
+
+    custom.sgfStartTextElement.innerHTML = custom.editor.getCurrent().children[0].comment;
 };
 
 custom.passBtnClickListener = function() {
@@ -325,21 +319,10 @@ custom.editorListener = function(event) {
 
         custom.editor.nextNode(1);
     }
-    else if (event.navChange) {
-        if (!custom.editor.getCurrent().children[0]) {
-            custom.sgfFinished();
-        }
-    }
 };
 
 custom.removeMarkup = function(coord) {
     custom.editor.getCurrent().markup[(coord.x - 1) * 19 + (coord.y - 1)] = 0;
-};
-
-custom.sgfFinished = function() {
-    if (custom.sgf[4]) {
-        custom.sgfEndTextElement.innerHTML = custom.sgf[4];
-    }
 };
 
 custom.placeStone = function(x, y) {
