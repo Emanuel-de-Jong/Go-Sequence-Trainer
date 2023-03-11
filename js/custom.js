@@ -125,7 +125,7 @@ custom.SGF_CATEGORIES = {
 };
 
 
-custom.init = function() {
+custom.init = function () {
     custom.mistakesElement = document.getElementById("mistakes");
     custom.colorSelect = document.getElementById("colorSelect");
     custom.randomSelect = document.getElementById("randomSelect");
@@ -154,9 +154,9 @@ custom.init = function() {
     custom.newBtnClickListener();
 };
 
-custom.boardElementKeydownListener = function(event) {
+custom.boardElementKeydownListener = function (event) {
     let node = custom.editor.getCurrent();
-    if (node.moveNumber > (custom.sgf[1] - 1)) {
+    if (node.moveNumber > custom.sgf[1] - 1) {
         switch (event.keyCode) {
             // case 37: // left
             //     custom.editor.nextNode(1);
@@ -168,7 +168,7 @@ custom.boardElementKeydownListener = function(event) {
     }
 };
 
-custom.newBtnClickListener = function() {
+custom.newBtnClickListener = function () {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
 
@@ -192,23 +192,27 @@ custom.newBtnClickListener = function() {
     custom.boardElement.focus({ preventScroll: true });
 };
 
-custom.setNewSGF = function() {
+custom.setNewSGF = function () {
     custom.lastSGF = custom.sgf;
-    
+
     if (custom.random == "full") {
         do {
             custom.sgf = custom.sgfs[custom.randomInt(custom.sgfs.length)];
         } while (custom.sgf == custom.lastSGF);
     } else {
-        if (custom.lastColor == custom.color &&
-                custom.lastRandom == custom.random &&
-                custom.lastScramble == custom.scramble &&
-                (custom.sgfs.length - 1) > custom.sgfsIndex) {
+        if (
+            custom.lastColor == custom.color &&
+            custom.lastRandom == custom.random &&
+            custom.lastScramble == custom.scramble &&
+            custom.sgfs.length - 1 > custom.sgfsIndex
+        ) {
             custom.sgfsIndex++;
         } else {
-            if (custom.lastColor == custom.color &&
-                    custom.lastRandom == custom.random &&
-                    custom.lastScramble == custom.scramble) {
+            if (
+                custom.lastColor == custom.color &&
+                custom.lastRandom == custom.random &&
+                custom.lastScramble == custom.scramble
+            ) {
                 alert("Cycle finished");
             }
 
@@ -227,7 +231,7 @@ custom.setNewSGF = function() {
     }
 };
 
-custom.resetBtnClickListener = function() {
+custom.resetBtnClickListener = function () {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
 
@@ -237,20 +241,20 @@ custom.resetBtnClickListener = function() {
     custom.boardElement.focus({ preventScroll: true });
 };
 
-custom.randomInt = function(max) {
+custom.randomInt = function (max) {
     return Math.floor(Math.random() * max);
 };
 
-custom.createBoard = function(sgf) {
+custom.createBoard = function (sgf) {
     let settings = {
-		resize: "auto",
-		orient: "portrait",
-		panels: "control+tree+comment",
-		coord: "western",
+        resize: "auto",
+        orient: "portrait",
+        panels: "control+tree+comment",
+        coord: "western",
         tool: "cross",
-		variants: 2,
-		nowheel: true,
-	};
+        variants: 2,
+        nowheel: true,
+    };
 
     if (sgf) {
         let sgfCode = sgf[2];
@@ -262,12 +266,12 @@ custom.createBoard = function(sgf) {
 
         if (color == "white") {
             let newSGFCode = "";
-            for (let i=0; i<sgfCode.length; i++) {
+            for (let i = 0; i < sgfCode.length; i++) {
                 let char = sgfCode[i];
-                if (char == 'B') {
-                    char = 'W';
-                } else if (char == 'W') {
-                    char = 'B';
+                if (char == "B") {
+                    char = "W";
+                } else if (char == "W") {
+                    char = "B";
                 }
 
                 newSGFCode += char;
@@ -296,18 +300,18 @@ custom.createBoard = function(sgf) {
     custom.sgfStartTextElement.innerHTML = custom.editor.getCurrent().children[0].comment;
 };
 
-custom.passBtnClickListener = function() {
+custom.passBtnClickListener = function () {
     custom.editor.setTool("auto");
     custom.editor.click(0, 0, false);
     custom.editor.setTool("cross");
 };
 
-custom.editorListener = function(event) {
+custom.editorListener = function (event) {
     if (event.markupChange) {
         custom.removeMarkup(event);
 
         let node = custom.editor.getCurrent();
-        if (node.moveNumber <= (custom.sgf[1] - 1)) return;
+        if (node.moveNumber <= custom.sgf[1] - 1) return;
 
         let nextNode = node.children[0];
         if (!nextNode) return;
@@ -321,21 +325,21 @@ custom.editorListener = function(event) {
     }
 };
 
-custom.removeMarkup = function(coord) {
+custom.removeMarkup = function (coord) {
     custom.editor.getCurrent().markup[(coord.x - 1) * 19 + (coord.y - 1)] = 0;
 };
 
-custom.placeStone = function(x, y) {
+custom.placeStone = function (x, y) {
     custom.editor.setTool("auto");
     custom.editor.click(x, y, false);
     custom.editor.setTool("cross");
 };
 
-custom.scrambleBoard = function() {
+custom.scrambleBoard = function () {
     let noDef = custom.scramble == "noDef";
 
     let rotateCount = custom.randomInt(4);
-    for (let i=0; i<rotateCount; i++) {
+    for (let i = 0; i < rotateCount; i++) {
         custom.rotateBoard();
     }
 
@@ -344,7 +348,7 @@ custom.scrambleBoard = function() {
     }
 };
 
-custom.rotateBoard = function() {
+custom.rotateBoard = function () {
     let newCoords = [];
 
     let node = custom.editor.getRoot();
@@ -353,7 +357,7 @@ custom.rotateBoard = function() {
             let x = node.move.y;
             let y = 20 - node.move.x;
 
-            newCoords.push({x: x, y: y});
+            newCoords.push({ x: x, y: y });
         }
 
         node = node.children[0];
@@ -361,14 +365,14 @@ custom.rotateBoard = function() {
 
     custom.createBoard();
 
-    newCoords.forEach(coord => {
+    newCoords.forEach((coord) => {
         custom.placeStone(coord.x, coord.y);
     });
 
     custom.editor.prevNode(1000);
 };
 
-custom.flipBoard = function() {
+custom.flipBoard = function () {
     let newCoords = [];
 
     let node = custom.editor.getRoot();
@@ -377,7 +381,7 @@ custom.flipBoard = function() {
             let x = node.move.x;
             let y = 20 - node.move.y;
 
-            newCoords.push({x: x, y: y});
+            newCoords.push({ x: x, y: y });
         }
 
         node = node.children[0];
@@ -385,22 +389,22 @@ custom.flipBoard = function() {
 
     custom.createBoard();
 
-    newCoords.forEach(coord => {
+    newCoords.forEach((coord) => {
         custom.placeStone(coord.x, coord.y);
     });
 
     custom.editor.prevNode(1000);
 };
 
-custom.shuffleArray = function(array) {
+custom.shuffleArray = function (array) {
     let currentIndex = array.length;
     let randomIndex;
-  
+
     while (currentIndex != 0) {
-      randomIndex = custom.randomInt(currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        randomIndex = custom.randomInt(currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
-  
+
     return array;
 };
