@@ -132,6 +132,7 @@ custom.init = function () {
     custom.scrambleSelect = document.getElementById("scrambleSelect");
     custom.boardElement = document.getElementById("board");
     custom.sgfStartTextElement = document.getElementById("sgfStartText");
+    custom.sgfCurrentTextElement = document.getElementById("sgfCurrentText");
 
     custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
@@ -249,7 +250,7 @@ custom.createBoard = function (sgf) {
     let settings = {
         resize: "auto",
         orient: "portrait",
-        panels: "control+tree+comment",
+        panels: "control+tree",
         coord: "western",
         tool: "cross",
         variants: 2,
@@ -293,10 +294,6 @@ custom.createBoard = function (sgf) {
     besogoControl.insertAdjacentHTML("beforeend", '<input type="button" value="Pass" id="passBtn">');
     document.getElementById("passBtn").addEventListener("click", custom.passBtnClickListener);
 
-    document.querySelector('input[value="Comment"]').remove();
-    document.querySelector('input[value="Edit Info"]').remove();
-    document.querySelector('input[value="Info"]').remove();
-
     custom.sgfStartTextElement.innerHTML = custom.editor.getCurrent().children[0].comment;
 };
 
@@ -322,6 +319,9 @@ custom.editorListener = function (event) {
         }
 
         custom.editor.nextNode(1);
+    }
+    else if (event.navChange) {
+        custom.sgfCurrentTextElement.innerHTML = custom.editor.getCurrent().comment;
     }
 };
 
