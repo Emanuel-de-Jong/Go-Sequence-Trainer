@@ -329,9 +329,14 @@ custom.removeMarkup = function (coord) {
     custom.editor.getCurrent().markup[(coord.x - 1) * 19 + (coord.y - 1)] = 0;
 };
 
-custom.placeStone = function (x, y) {
-    custom.editor.setTool("auto");
+custom.placeStone = function (x, y, tool="auto", comment) {
+    custom.editor.setTool(tool);
     custom.editor.click(x, y, false);
+
+    if (comment) {
+        custom.editor.getCurrent().comment = comment;
+    }
+
     custom.editor.setTool("cross");
 };
 
@@ -357,16 +362,24 @@ custom.rotateBoard = function () {
             let x = node.move.y;
             let y = 20 - node.move.x;
 
-            newCoords.push({ x: x, y: y });
+            newCoords.push({
+                x: x,
+                y: y,
+                color: node.move.color,
+                comment: node.comment
+            });
         }
 
         node = node.children[0];
     }
 
-    custom.createBoard();
+    let rootNode = custom.editor.getRoot();
+    rootNode.removeChild(rootNode.children[0]);
+
+    custom.editor.notifyListeners({ treeChange: true, navChange: true });
 
     newCoords.forEach((coord) => {
-        custom.placeStone(coord.x, coord.y);
+        custom.placeStone(coord.x, coord.y, coord.color == -1 ? "playB" : "playW", coord.comment);
     });
 
     custom.editor.prevNode(1000);
@@ -381,16 +394,24 @@ custom.flipBoard = function () {
             let x = node.move.x;
             let y = 20 - node.move.y;
 
-            newCoords.push({ x: x, y: y });
+            newCoords.push({
+                x: x,
+                y: y,
+                color: node.move.color,
+                comment: node.comment
+            });
         }
 
         node = node.children[0];
     }
 
-    custom.createBoard();
+    let rootNode = custom.editor.getRoot();
+    rootNode.removeChild(rootNode.children[0]);
+
+    custom.editor.notifyListeners({ treeChange: true, navChange: true });
 
     newCoords.forEach((coord) => {
-        custom.placeStone(coord.x, coord.y);
+        custom.placeStone(coord.x, coord.y, coord.color == -1 ? "playB" : "playW", coord.comment);
     });
 
     custom.editor.prevNode(1000);
