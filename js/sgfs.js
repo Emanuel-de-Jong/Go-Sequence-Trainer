@@ -58,8 +58,8 @@ var sgfs = {
             [4, 12, "B[qd]PL[B];B[nc];W[dm];W[nd];B[md];W[oc];B[od];W[ne];B[pc];W[mc];B[ob];W[nb];B[oc];W[ld]"],
             [4, 5, "B[qd]PL[B];B[nc];W[dm];W[nd];B[od];W[mc];B[oc];W[qe];B[pe];W[qf];B[rd]"],
             [3, 4, "B[qd]PL[B];B[nc];W[qc];B[pd];W[pc];B[oc];W[rd];B[re];W[rb];B[sd];W[sc]"],
-            [3, 4, "PL[B];B[qd]PL[B];B[nc];W[qc];B[pc];W[rd];B[rc];W[qb];B[re];W[pd];B[qe];W[oc];B[od];W[pb];B[pe];W[nb]"],
-            [3, 4, "PL[B];B[qd]PL[B];B[nc];W[pd];B[pc];W[qe];B[od];W[pe];B[rd]"],
+            [3, 4, "B[qd]PL[B];B[nc];W[qc];B[pc];W[rd];B[rc];W[qb];B[re];W[pd];B[qe];W[oc];B[od];W[pb];B[pe];W[nb]"],
+            [3, 4, "B[qd]PL[B];B[nc];W[pd];B[pc];W[qe];B[od];W[pe];B[rd]"],
             [7, 7, "B[qd]PL[B];B[nc]PL[B];B[pj]PL[B];B[id]PL[B];B[mj]PL[B];B[ig];W[od];B[oc];W[pd];B[pc];W[qe];B[rd];W[of]"],
         ],
         OneSpace: [
