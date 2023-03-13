@@ -184,14 +184,14 @@ custom.editorListener = function (event) {
         custom.removeMarkup(event);
 
         let node = custom.editor.getCurrent();
-        if (node.moveNumber <= custom.sgf[1] - 1) return;
+        if (node.moveNumber > custom.sgf[1] - 1) {
+            let nextNode = node.children[0];
+            if (!nextNode) return;
 
-        let nextNode = node.children[0];
-        if (!nextNode) return;
-
-        if (nextNode.move.x != event.x || nextNode.move.y != event.y) {
-            custom.mistakes++;
-            custom.mistakesElement.innerHTML = custom.mistakes;
+            if (nextNode.move.x != event.x || nextNode.move.y != event.y) {
+                custom.mistakes++;
+                custom.mistakesElement.innerHTML = custom.mistakes;
+            }
         }
 
         custom.editor.nextNode(1);
