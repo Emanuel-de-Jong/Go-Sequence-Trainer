@@ -11,14 +11,23 @@ custom.init = function () {
     custom.sgfCurrentTextElement = document.getElementById("sgfCurrentText");
     custom.sgfCatChecksElement = document.getElementById("sgfCatChecks");
 
-    custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
-    custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
-    custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
+    custom.colorSelect.addEventListener("change", (event) => custom.color = event.target.value);
+    custom.randomSelect.addEventListener("change", (event) => custom.random = event.target.value);
+    custom.scrambleSelect.addEventListener("change", (event) => custom.scramble = event.target.value);
     custom.boardElement.addEventListener("keydown", custom.boardElementKeydownListener);
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
     document.getElementById("sgfCatAllBtn").addEventListener("click", custom.sgfCatAllBtnClickListener);
     document.getElementById("sgfCatNoneBtn").addEventListener("click", custom.sgfCatNoneBtnClickListener);
+
+    const changeEvent = new Event("change");
+    custom.colorSelect.dispatchEvent(changeEvent);
+    custom.randomSelect.dispatchEvent(changeEvent);
+    custom.scrambleSelect.dispatchEvent(changeEvent);
+
+    custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
+    custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
+    custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
 
     for (const [key, value] of Object.entries(sgfs)) {
         let label = document.createElement("label");
@@ -39,8 +48,6 @@ custom.init = function () {
     }
 
     custom.setSGFs();
-
-    custom.newBtnClickListener();
 };
 
 custom.sgfCatAllBtnClickListener = function () {
@@ -50,7 +57,6 @@ custom.sgfCatAllBtnClickListener = function () {
     }
 
     custom.setSGFs();
-    custom.newBtnClickListener();
 };
 
 custom.sgfCatNoneBtnClickListener = function () {
@@ -61,7 +67,6 @@ custom.sgfCatNoneBtnClickListener = function () {
 };
 
 custom.setSGFs = function () {
-    console.log("setSGFs");
     custom.sgfs = [];
     for (const [key, value] of Object.entries(sgfs)) {
         if (!value.Enabled) continue;
@@ -72,12 +77,13 @@ custom.setSGFs = function () {
             custom.sgfs = custom.sgfs.concat(subValue);
         }
     }
+
+    custom.newBtnClickListener();
 };
 
 custom.sgfCatCheckChangeListener = function (event) {
     sgfs[event.target.id].Enabled = event.target.checked;
     custom.setSGFs();
-    custom.newBtnClickListener();
 };
 
 custom.boardElementKeydownListener = function (event) {
@@ -94,19 +100,9 @@ custom.boardElementKeydownListener = function (event) {
     }
 };
 
-// TODO: force new custom.shuffledSGFs on sgfCatCheck change.
 custom.newBtnClickListener = function () {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
-
-    custom.lastColor = custom.color;
-    custom.color = custom.colorSelect.value;
-
-    custom.lastRandom = custom.random;
-    custom.random = custom.randomSelect.value;
-
-    custom.lastScramble = custom.scramble;
-    custom.scramble = custom.scrambleSelect.value;
 
     custom.setNewSGF();
 
@@ -120,26 +116,21 @@ custom.newBtnClickListener = function () {
 };
 
 custom.setNewSGF = function () {
-    custom.lastSGF = custom.sgf;
-
-    if (custom.random == "full") {
-        do {
-            custom.sgf = custom.sgfs[custom.randomInt(custom.sgfs.length)];
-        } while (custom.sgf == custom.lastSGF);
-    } else {
+    if (custom.random != "full") {
+        let forceNew = false;
         if (
-            custom.lastColor == custom.color &&
-            custom.lastRandom == custom.random &&
-            custom.lastScramble == custom.scramble &&
-            custom.sgfs.length - 1 > custom.sgfsIndex
+            (custom.lastSGFs && custom.lastSGFs.length != custom.sgfs.length) ||
+            custom.lastColor !== custom.color ||
+            custom.lastRandom !== custom.random ||
+            custom.lastScramble !== custom.scramble
         ) {
+            forceNew = true;
+        }
+
+        if (!forceNew && custom.sgfs.length - 1 > custom.sgfsIndex) {
             custom.sgfsIndex++;
         } else {
-            if (
-                custom.lastColor == custom.color &&
-                custom.lastRandom == custom.random &&
-                custom.lastScramble == custom.scramble
-            ) {
+            if (!forceNew) {
                 alert("Cycle finished");
             }
 
@@ -150,11 +141,21 @@ custom.setNewSGF = function () {
             }
         }
 
-        if (custom.random == "off") {
-            custom.sgf = custom.sgfs[custom.sgfsIndex];
-        } else if (custom.random == "shuffled") {
-            custom.sgf = custom.shuffledSGFs[custom.sgfsIndex];
-        }
+        custom.lastSGFs = custom.sgfs;
+        custom.lastColor = custom.color;
+        custom.lastRandom = custom.random;
+        custom.lastScramble = custom.scramble;
+    }
+
+    if (custom.random == "off") {
+        custom.sgf = custom.sgfs[custom.sgfsIndex];
+    } else if (custom.random == "shuffled") {
+        custom.sgf = custom.shuffledSGFs[custom.sgfsIndex];
+    } else if (custom.random == "full") {
+        let lastSGF = custom.sgf;
+        do {
+            custom.sgf = custom.sgfs[custom.randomInt(custom.sgfs.length)];
+        } while (custom.sgf == lastSGF && custom.sgf.length > 1);
     }
 };
 
