@@ -8,10 +8,16 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-3"></div>
+        <div class="col-3">
+            <div id="sgfCatDiv">
+                <button id="sgfCatAllBtn">All</button>
+                <button id="sgfCatNoneBtn">None</button>
+                <div id="sgfCatChecks"></div>
+            </div>
+        </div>
 
         <div class="col-6">
-            <div id="control-div">
+            <div id="controlDiv">
                 <button id="newBtn">New</button>
                 <button id="resetBtn">Reset</button>
                 
@@ -36,13 +42,13 @@
                     <option value="noDef">No Default</option>
                 </select>
             </div>
-            <div id="board-div">
+            <div id="boardDiv">
                 <div id="board"></div>
             </div>
         </div>
 
         <div class="col-3">
-            <div id="info-div">
+            <div id="infoDiv">
                 <p>Mistakes: <span id="mistakes">0</span></p>
                 <p id="sgfStartText"></p>
                 <p id="sgfCurrentText"></p>

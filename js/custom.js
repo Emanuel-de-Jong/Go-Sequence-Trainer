@@ -9,6 +9,7 @@ custom.init = function () {
     custom.boardElement = document.getElementById("board");
     custom.sgfStartTextElement = document.getElementById("sgfStartText");
     custom.sgfCurrentTextElement = document.getElementById("sgfCurrentText");
+    custom.sgfCatChecksElement = document.getElementById("sgfCatChecks");
 
     custom.colorSelect.addEventListener("change", custom.newBtnClickListener);
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
@@ -17,17 +18,46 @@ custom.init = function () {
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
 
-    custom.sgfs = [];
-    for (const sgfCategory of Object.values(sgfs)) {
-        if (Array.isArray(sgfCategory)) {
-            custom.sgfs = custom.sgfs.concat(sgfCategory);
-        } else {
-            for (const sgfSubCategory of Object.values(sgfCategory)) {
-                custom.sgfs = custom.sgfs.concat(sgfSubCategory);
-            }
-        }
+    for (const [key, value] of Object.entries(sgfs)) {
+        let label = document.createElement("label");
+        label.innerHTML = key;
+        label.htmlFor = key;
+
+        let input = document.createElement("input");
+        input.type = "checkbox";
+        input.checked = value.Enabled;
+        input.id = key;
+        input.addEventListener("change", custom.sgfCatCheckChangeListener);
+
+        let div = document.createElement("div");
+        div.appendChild(input);
+        div.appendChild(label);
+
+        custom.sgfCatChecksElement.appendChild(div);
     }
 
+    custom.setSGFs();
+
+    custom.newBtnClickListener();
+};
+
+custom.setSGFs = function () {
+    console.log("setSGFs");
+    custom.sgfs = [];
+    for (const [key, value] of Object.entries(sgfs)) {
+        if (!value.Enabled) continue;
+
+        for (const [subKey, subValue] of Object.entries(value)) {
+            if (subKey == "Enabled") continue;
+            
+            custom.sgfs = custom.sgfs.concat(subValue);
+        }
+    }
+};
+
+custom.sgfCatCheckChangeListener = function (event) {
+    sgfs[event.target.id].Enabled = event.target.checked;
+    custom.setSGFs();
     custom.newBtnClickListener();
 };
 
