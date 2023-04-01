@@ -1,64 +1,58 @@
 var sgfs = {
     ShoulderHit: {
         Enabled: true,
-        ToSide: [
-            [0, 0, "B[pq]C[ShoulderHit]"],
-        ],
+        ToSide: [],
         ToCenter: [],
         Base: [],
     },
 
     DaidaigeimaInvasion: {
         Enabled: true,
-        Attatch: [
-            [0, 0, "B[pq]C[DaidaigeimaInvasion]"],
-        ],
+        Attatch: [],
         ShoulderHit: [],
     },
 
     Enclosure3_4Probing: {
         Enabled: true,
-        Knight: [
-            [0, 0, "B[pq]C[Enclosure3_4Probing]"],
-        ],
+        Knight: [],
         LargeKnight: [],
         OneSpace: [],
         TwoSpace: [],
     },
 
-    // Joseki4_4KickInvasion: {
-    //     Enabled: true,
-    //     AttackerHighBase: [],
-    //     AttackerLowBase: [],
-    // },
+    Joseki4_4KickInvasion: {
+        Enabled: true,
+        AttackerHighBase: [],
+        AttackerLowBase: [],
+    },
 
-    // Joseki3_4HighApproachInvasion: {
-    //     Enabled: true,
-    //     AttackerHighBase: [],
-    //     AttackerLowBase: [],
-    //     AttackerLowBasePincer: [],
-    // },
+    Joseki3_4HighApproachInvasion: {
+        Enabled: true,
+        AttackerHighBase: [],
+        AttackerLowBase: [],
+        AttackerLowBasePincer: [],
+    },
 
-    // Joseki4_4SanSanContinuation: {
-    //     Enabled: true,
-    //     X: [],
-    // },
+    Joseki4_4SanSanContinuation: {
+        Enabled: true,
+        X: [],
+    },
 
-    // CornerLifeDeath: {
-    //     Enabled: true,
-    //     L: [],
-    //     L1f: [],
-    //     L1s: [],
-    //     L2: [],
-    // },
+    CornerLifeDeath: {
+        Enabled: true,
+        L: [],
+        L1f: [],
+        L1s: [],
+        L2: [],
+    },
 
-    // AIJoseki: {
-    //     Enabled: true,
-    //     X: [],
-    // },
+    AIJoseki: {
+        Enabled: true,
+        X: [],
+    },
 
-    // Other: {
-    //     Enabled: true,
-    //     X: [],
-    // },
+    Other: {
+        Enabled: true,
+        X: [],
+    },
 };
