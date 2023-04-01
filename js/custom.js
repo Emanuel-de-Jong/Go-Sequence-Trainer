@@ -29,6 +29,8 @@ custom.init = function () {
     custom.randomSelect.addEventListener("change", custom.newBtnClickListener);
     custom.scrambleSelect.addEventListener("change", custom.newBtnClickListener);
 
+    document.addEventListener("mouseup", custom.mouseupListener);
+
     for (const [key, value] of Object.entries(sgfs)) {
         let label = document.createElement("label");
         label.innerHTML = key;
@@ -48,6 +50,22 @@ custom.init = function () {
     }
 
     custom.setSGFs();
+};
+
+custom.mouseupListener = function (event) {
+    switch (event.button) {
+        case 3:
+            event.preventDefault();
+            custom.newBtnClickListener();
+            break;
+        case 4:
+            event.preventDefault();
+            let node = custom.editor.getCurrent();
+            if (node.moveNumber <= custom.sgf[1] - 1) {
+                custom.editor.nextNode(1);
+            }
+            break;
+    }
 };
 
 custom.sgfCatAllBtnClickListener = function () {
