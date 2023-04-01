@@ -17,6 +17,8 @@ custom.init = function () {
     custom.boardElement.addEventListener("keydown", custom.boardElementKeydownListener);
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
+    document.getElementById("sgfCatAllBtn").addEventListener("click", custom.sgfCatAllBtnClickListener);
+    document.getElementById("sgfCatNoneBtn").addEventListener("click", custom.sgfCatNoneBtnClickListener);
 
     for (const [key, value] of Object.entries(sgfs)) {
         let label = document.createElement("label");
@@ -39,6 +41,23 @@ custom.init = function () {
     custom.setSGFs();
 
     custom.newBtnClickListener();
+};
+
+custom.sgfCatAllBtnClickListener = function () {
+    for (const [key, value] of Object.entries(sgfs)) {
+        value.Enabled = true;
+        document.getElementById(key).checked = true;
+    }
+
+    custom.setSGFs();
+    custom.newBtnClickListener();
+};
+
+custom.sgfCatNoneBtnClickListener = function () {
+    for (const [key, value] of Object.entries(sgfs)) {
+        value.Enabled = false;
+        document.getElementById(key).checked = false;
+    }
 };
 
 custom.setSGFs = function () {
@@ -75,6 +94,7 @@ custom.boardElementKeydownListener = function (event) {
     }
 };
 
+// TODO: force new custom.shuffledSGFs on sgfCatCheck change.
 custom.newBtnClickListener = function () {
     custom.mistakes = 0;
     custom.mistakesElement.innerHTML = custom.mistakes;
