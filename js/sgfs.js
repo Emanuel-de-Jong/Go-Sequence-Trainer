@@ -2,7 +2,7 @@ var sgfs = {
     Reduction: {
         Enabled: true,
         ShoulderHit: {
-            Enabled: true,
+            Enabled: false,
             ToSide: {
                 Enabled: true,
                 X: [
