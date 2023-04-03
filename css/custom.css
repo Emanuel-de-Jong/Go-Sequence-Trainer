@@ -1,6 +1,14 @@
 #sgfCatDiv {
-    margin-top: 100px;
+    margin-top: 20px;
     margin-left: 40px;
+}
+
+#sgfCatChecks > div {
+    margin-top: 20px;
+}
+
+#sgfCatChecks input[type="checkbox"] {
+    margin-right: 4px;
 }
 
 

@@ -61,8 +61,14 @@ custom.createSGFCatCheckElements = function () {
     custom.createSGFCatCheckElementsLoop("", "", sgfs);
 };
 
-custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, depth=0) {
+custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, parentDiv = custom.sgfCatChecksElement, depth=0) {
     if (enabledKey != "") {
+        let span = document.createElement("span");
+        span.innerHTML = "";
+        for (let i = 1; i < depth; i++) {
+            span.innerHTML += "&nbsp;|&nbsp;";
+        }
+
         let label = document.createElement("label");
         label.innerHTML = name;
         label.htmlFor = enabledKey;
@@ -71,21 +77,23 @@ custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, dep
         input.type = "checkbox";
         input.checked = custom.sgfCatEnableds[enabledKey];
         input.id = enabledKey;
-        input.style.marginLeft = depth * 10 + "px";
         input.addEventListener("change", custom.sgfCatCheckChangeListener);
     
         let div = document.createElement("div");
+        div.appendChild(span);
         div.appendChild(input);
         div.appendChild(label);
     
-        custom.sgfCatChecksElement.appendChild(div);
+        parentDiv.appendChild(div);
+
+        parentDiv = div;
     }
 
     for (const [key, value] of Object.entries(category)) {
         if (key == "Enabled") continue;
 
         if (!Array.isArray(value)) {
-            custom.createSGFCatCheckElementsLoop(enabledKey + key, key, value, depth + 1);
+            custom.createSGFCatCheckElementsLoop(enabledKey + key, key, value, parentDiv, depth + 1);
         }
     }
 };
