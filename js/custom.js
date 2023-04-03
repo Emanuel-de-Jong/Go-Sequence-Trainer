@@ -141,7 +141,11 @@ custom.setSGFsLoop = function (enabledKey, category) {
         if (key == "Enabled") continue;
 
         if (Array.isArray(value)) {
-            custom.sgfs.push(value);
+            if (key == "X") {
+                custom.sgfs = custom.sgfs.concat(value);
+            } else {
+                custom.sgfs.push(value);
+            }
         } else {
             custom.setSGFsLoop(enabledKey + key, value);
         }
