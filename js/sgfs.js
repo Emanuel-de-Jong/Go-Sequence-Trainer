@@ -5,7 +5,10 @@ var sgfs = {
             Enabled: true,
             ToSide: {
                 Enabled: true,
-                Extend: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[kp]LB[lr:A];B[ip];W[jn];B[io]C[W Good];W[lm]"],
+                Extend: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[kp];B[ip]LB[lr:A];W[jn];B[io]C[W Good];W[lm]"],
+                Jump_Extend: [1, 4, "AB[fq][iq][oq][po][pn][ol]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[lp];B[kq];W[ln]C[Ladder doesn't work];B[kp]C[W Good];W[ko];B[jo];W[jn];B[io]"],
+                Jump_Extend_Ladder: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[lp];B[kq];W[lm]C[Ladder works]"],
+                Jump_Hane: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W]AE[ol];W[jp];B[jq];W[lp];B[kp];W[ko];B[kq];W[lm]LB[ln:B][lo:C][mn:A]"],
             },
             ToCenter: {
                 Enabled: false,
