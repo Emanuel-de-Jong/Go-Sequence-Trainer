@@ -119,15 +119,15 @@ var sgfs = {
         },
     },
 
-    CornerJoseki: {
+    Continuation: {
         Enabled: false,
-        C4_4: {
+        Corner: {
             Enabled: false,
-            Kick: {
+            C4_4: {
                 Enabled: false,
-                AttackerHighBase: {
+                Kick: {
                     Enabled: false,
-                    Continuation: {
+                    AttackerHighBase: {
                         Enabled: false,
                         X: [
                             [8, 8, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[pd];W[cq];B[er];W[co];B[cn];W[bn];B[bm];W[bo];B[do];W[br]"],
@@ -137,10 +137,7 @@ var sgfs = {
                             [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hr];W[hq];B[fr];W[gr];B[gs];W[gq];B[dr]"],
                         ],
                     },
-                },
-                AttackerLowBase: {
-                    Enabled: false,
-                    Continuation: {
+                    AttackerLowBase: {
                         Enabled: false,
                         X: [
                             [7, 10, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[ip];B[fr]"],
@@ -155,30 +152,21 @@ var sgfs = {
                         ],
                     },
                 },
-            },
-            SanSan: {
-                Enabled: false,
-                Continuation: {
+                SanSan: {
                     Enabled: false,
                 },
             },
-        },
-        C3_4: {
-            Enabled: false,
-            HighApproach: {
+            C3_4: {
                 Enabled: false,
-                AttackerHighBase: {
+                HighApproach: {
                     Enabled: false,
-                    Continuation: {
+                    AttackerHighBase: {
                         Enabled: false,
                         X: [
                             [9, 9, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jd];B[lb];W[lc];B[kc];W[kd];B[mc];W[ld];B[nb];W[md];B[mb]"],
                         ],
                     },
-                },
-                AttackerLowBase: {
-                    Enabled: false,
-                    Continuation: {
+                    AttackerLowBase: {
                         Enabled: false,
                         X: [
                             [9, 13, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jc];B[lc]SBKV[47.04];W[pd];B[qc];W[ld];B[lb];W[nb];B[kd];W[kc];B[jd];W[ic];B[id];W[hc];B[md];W[le];B[me];W[lf];B[mc];W[mf];B[ne];W[of];B[oe];W[pe];B[pf];W[nf]"],
