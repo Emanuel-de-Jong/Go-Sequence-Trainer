@@ -31,25 +31,42 @@ custom.init = function () {
 
     document.addEventListener("mouseup", custom.mouseupListener);
 
-    for (const [key, value] of Object.entries(sgfs)) {
+    custom.createSGFCatCheckElements();
+
+    custom.setSGFs();
+};
+
+custom.createSGFCatCheckElements = function () {
+    custom.createSGFCatCheckElementsLoop("", sgfs);
+};
+
+custom.createSGFCatCheckElementsLoop = function (key, value, depth=0) {
+    if (value.hasOwnProperty("Enabled")) {
         let label = document.createElement("label");
         label.innerHTML = key;
         label.htmlFor = key;
-
+    
         let input = document.createElement("input");
         input.type = "checkbox";
         input.checked = value.Enabled;
         input.id = key;
+        input.style.marginLeft = depth * 10 + "px";
         input.addEventListener("change", custom.sgfCatCheckChangeListener);
-
+    
         let div = document.createElement("div");
         div.appendChild(input);
         div.appendChild(label);
-
+    
         custom.sgfCatChecksElement.appendChild(div);
     }
 
-    custom.setSGFs();
+    for (const [subKey, subValue] of Object.entries(value)) {
+        if (subKey == "Enabled") continue;
+
+        if (!Array.isArray(subValue)) {
+            custom.createSGFCatCheckElementsLoop(subKey, subValue, depth + 1);
+        }
+    }
 };
 
 custom.mouseupListener = function (event) {
@@ -86,17 +103,23 @@ custom.sgfCatNoneBtnClickListener = function () {
 
 custom.setSGFs = function () {
     custom.sgfs = [];
-    for (const [key, value] of Object.entries(sgfs)) {
-        if (!value.Enabled) continue;
-
-        for (const [subKey, subValue] of Object.entries(value)) {
-            if (subKey == "Enabled") continue;
-            
-            custom.sgfs = custom.sgfs.concat(subValue);
-        }
-    }
+    custom.setSGFsLoop(sgfs);
 
     custom.newBtnClickListener();
+};
+
+custom.setSGFsLoop = function (category) {
+    if (category.hasOwnProperty("Enabled") && !category.Enabled) return;
+
+    for (const [key, value] of Object.entries(category)) {
+        if (key == "Enabled") continue;
+
+        if (Array.isArray(value)) {
+            custom.sgfs.push(value);
+        } else {
+            custom.setSGFsLoop(value);
+        }
+    }
 };
 
 custom.sgfCatCheckChangeListener = function (event) {
