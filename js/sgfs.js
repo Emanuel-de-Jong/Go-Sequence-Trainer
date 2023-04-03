@@ -1,56 +1,55 @@
 var sgfs = {
     Reduction: {
-        Enabled: true,
+        Enabled: false,
         ShoulderHit: {
             Enabled: true,
             ToSide: {
                 Enabled: true,
-                Extend: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[kp];B[ip]LB[lr:A];W[jn];B[io]C[W Good];W[lm]"],
+                Jump_Wedge: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W]AE[ol];W[jp];B[jq];W[lp];B[kp];W[ko];B[kq];W[lm]LB[ln:B][lo:C][mn:A]"],
                 Jump_Extend: [1, 4, "AB[fq][iq][oq][po][pn][ol]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[lp];B[kq];W[ln]C[Ladder doesn't work];B[kp]C[W Good];W[ko];B[jo];W[jn];B[io]"],
                 Jump_Extend_Ladder: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[lp];B[kq];W[lm]C[Ladder works]"],
-                Jump_Wedge: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W]AE[ol];W[jp];B[jq];W[lp];B[kp];W[ko];B[kq];W[lm]LB[ln:B][lo:C][mn:A]"],
+                Extend: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[kp];B[ip]LB[lr:A];W[jn];B[io]C[W Good];W[lm]"],
             },
             ToCenter: {
                 Enabled: true,
+                Jump: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[ip];W[jn];B[jo];W[ko];B[io];W[kl]LB[kn:B][lm:A];B[lq]"],
                 Extend: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[ip];W[jo];B[kr]LB[jq:A];W[io]"],
                 Extend_Extend: [1, 4, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[ip];W[jo];B[io]C[W Good];W[jn];B[in];W[jm];B[];W[im]LB[jq:A]"],
-                Jump: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[ip];W[jn];B[jo];W[ko];B[io];W[kl]LB[kn:B][lm:A];B[lq]"],
             },
             Base: {
                 Enabled: true,
-                Cut: [0, 4, "AB[jq][pq][qo][qg][pd]AW[qm][qj]C[B to make framework on lower right];B[pk];W[qk];B[pm];W[pn]C[Doesn't work];B[qn];W[pl];B[om]"],
-                Extend: [0, 4, "AB[jq][pq][qo][qg][pd]AW[qm][qj]C[B to make framework on lower right];B[pk];W[qk];B[pm];W[qn]C[Doesn't work];B[pn]"],
-                Wedge: [0, 4, "AB[jq][pq][qo][qg][pd]AW[qm][qj]C[B to make framework on lower right];B[pk];W[qk];B[pm];W[pl]C[Doesn't work];B[ol];W[ql];B[pn]"],
+                Cut: [1, 4, "AB[jq][pq][qo][qg][pd]AW[qm][qj]C[B to make framework on lower right];B[pk];W[qk];B[pm];W[pn]C[Doesn't work];B[qn];W[pl];B[om]"],
+                Extend: [1, 4, "AB[jq][pq][qo][qg][pd]AW[qm][qj]C[B to make framework on lower right];B[pk];W[qk];B[pm];W[qn]C[Doesn't work];B[pn]"],
+                Wedge: [1, 4, "AB[jq][pq][qo][qg][pd]AW[qm][qj]C[B to make framework on lower right];B[pk];W[qk];B[pm];W[pl]C[Doesn't work];B[ol];W[ql];B[pn]"],
             },
         },
     },
 
     Daidaigeima: {
-        Enabled: false,
+        Enabled: true,
         Invasion: {
-            Enabled: false,
-            Attatch: {
-                Enabled: false,
-                X: [
-                    [9, 11, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[io];W[iq];B[gp];W[jq];B[kp];W[kq];B[lp];W[mq]"],
-                    [9, 13, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[iq];W[io];B[jq];W[gp];B[hr];W[ho]"],
-                    [9, 13, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[iq];W[io];B[hr];W[jq];B[gq];W[kp]"],
-                    [10, 14, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn];B[ck];W[hq];B[hp];W[iq];B[ip];W[jq];B[gq];W[lq];B[kp];W[mr]"],
-                    [10, 14, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn];B[ck];W[hq];B[hp];W[iq];B[ip];W[jq];B[dq];W[kp];B[cp]"],
-                    [15, 15, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn];B[pn];W[qn];B[pm];W[qm];B[pl];W[ql]PL[W];W[hq];B[hp];W[iq];B[jq];W[ip];B[io];W[gp];B[ho];W[gq];B[kn]"],
-                ],
+            Enabled: true,
+            Attach: {
+                Enabled: true,
+                Wedge_AtariBottom_Left: [1, 6, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W];W[hq];B[hp];W[ip]C[Ladders work];B[iq];W[io];B[jq];W[gp];B[hr];W[ho];B[gq]"],
+                Wedge_AtariBottom_Right_Ladder: [1, 9, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W];W[hq];B[hp];W[ip]C[Ladders work];B[iq];W[io];B[hr];W[jq];B[gq];W[kp]"],
+                Wedge_AtariBottom_Right_Ko: [1, 10, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W];W[hq];B[hp];W[ip]C[Ladders work];B[iq];W[io];B[hr];W[jq];B[gq];W[ir];B[cq];W[];B[jr];W[hq]"],
+                Wedge_AtariBottom_Right_Connect: [1, 10, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W];W[hq];B[hp];W[ip]C[Ladders work];B[iq];W[io];B[hr];W[jq];B[gq];W[ir];B[hq]C[W Good];W[kp]"],
+                Wedge_AtariTop: [1, 4, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W];W[hq];B[hp];W[ip]C[Ladders work];B[io]C[W Good];W[iq];B[gp];W[jq];B[kp];W[kq];B[];W[];B[lp];W[mq];B[jn]LB[hn:A]"],
+                Extend_Connect_Close: [1, 6, "AB[fq][jp][op][pq][dk]AW[dp][cn][qo][ql][qi]PL[W]AE[dj];W[hq];B[hp];W[iq]C[One of the ladders doesn't work];B[ip];W[jq];B[gq];W[lq];B[kp];W[mr]"],
+                Extend_Connect_Attach_Hane: [1, 7, "AB[fq][jp][op][pq][dk]AW[dp][cn][qo][ql][qi]PL[W]AE[dj];W[hq];B[hp];W[iq]C[One of the ladders doesn't work];B[ip];W[jq];B[dq];W[kp];B[cp]"],
+                Extend_Connect_Attach_React: [1, 7, "AB[fq][jp][op][pq][dk]AW[dp][cn][qo][ql][qi]PL[W]AE[dj];W[hq];B[hp];W[iq]C[One of the ladders doesn't work];B[ip];W[jq];B[dq];W[cq]C[W is dead];B[kq];W[gq];B[gp];W[fr];B[er]"],
+                Extend_Down: [1, 2, "AB[fq][jp][pq][po][pn][pm][ok]AW[dp][cn][rp][qn][qm][ql][qi]PL[W]AE[oj];W[hq];B[hp];W[iq]C[One of the ladders doesn't work];B[jq]C[B trades left for right side because of big framework];W[ip];B[io];W[gp];B[ho];W[gq];B[kn]LB[jo:A];W[];B[];W[go]C[F3 had aji]"],
             },
             ShoulderHit: {
-                Enabled: false,
-                X: [
-                    [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[ip];B[jr];W[ir]"],
-                    [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[kr]"],
-                    [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[kp]"],
-                ],
+                Enabled: true,
+                Hane: [1, 4, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W];W[hq];B[gp];W[jq];B[kq];W[kr]LB[kp:A]"],
+                Ko: [1, 4, "AB[fq][jp][op][pq][ab][bc][bd][be][ae][cc][cb][ca]AW[dp][cn][qo][ql][qi][ac][af][bf][cf][ce][cd][dd][dc][db][da]PL[W];W[hq];B[gp];W[jq];B[kq];W[ip]C[W has ko threat];B[jr];W[ir]"],
             },
         },
         Reduction: {
-            Enabled: false,
+            Enabled: true,
+            Center: [1, 1, "AB[fq][jp][op][pq]AW[dp][cn][qo][ql][qi]PL[W]C[B Good];W[hp];B[hq];W[iq];B[ip];W[gq];B[hr];W[gp];B[gr]"],
         },
     },
 
