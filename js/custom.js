@@ -31,25 +31,46 @@ custom.init = function () {
 
     document.addEventListener("mouseup", custom.mouseupListener);
 
+    custom.createSGFCatEnableds();
+
     custom.createSGFCatCheckElements();
 
     custom.setSGFs();
 };
 
-custom.createSGFCatCheckElements = function () {
-    custom.createSGFCatCheckElementsLoop("", sgfs);
+custom.createSGFCatEnableds = function() {
+    custom.sgfCatEnableds = {};
+    custom.createSGFCatEnabledsLoop("", sgfs);
 };
 
-custom.createSGFCatCheckElementsLoop = function (key, value, depth=0) {
-    if (value.hasOwnProperty("Enabled")) {
+custom.createSGFCatEnabledsLoop = function(enabledKey, category) {
+    if (category.hasOwnProperty("Enabled")) {
+        custom.sgfCatEnableds[enabledKey] = category.Enabled;
+    }
+
+    for (const [key, value] of Object.entries(category)) {
+        if (key == "Enabled") continue;
+
+        if (!Array.isArray(value)) {
+            custom.createSGFCatEnabledsLoop(enabledKey + key, value);
+        }
+    }
+};
+
+custom.createSGFCatCheckElements = function () {
+    custom.createSGFCatCheckElementsLoop("", "", sgfs);
+};
+
+custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, depth=0) {
+    if (enabledKey != "") {
         let label = document.createElement("label");
-        label.innerHTML = key;
-        label.htmlFor = key;
+        label.innerHTML = name;
+        label.htmlFor = enabledKey;
     
         let input = document.createElement("input");
         input.type = "checkbox";
-        input.checked = value.Enabled;
-        input.id = key;
+        input.checked = custom.sgfCatEnableds[enabledKey];
+        input.id = enabledKey;
         input.style.marginLeft = depth * 10 + "px";
         input.addEventListener("change", custom.sgfCatCheckChangeListener);
     
@@ -60,13 +81,18 @@ custom.createSGFCatCheckElementsLoop = function (key, value, depth=0) {
         custom.sgfCatChecksElement.appendChild(div);
     }
 
-    for (const [subKey, subValue] of Object.entries(value)) {
-        if (subKey == "Enabled") continue;
+    for (const [key, value] of Object.entries(category)) {
+        if (key == "Enabled") continue;
 
-        if (!Array.isArray(subValue)) {
-            custom.createSGFCatCheckElementsLoop(subKey, subValue, depth + 1);
+        if (!Array.isArray(value)) {
+            custom.createSGFCatCheckElementsLoop(enabledKey + key, key, value, depth + 1);
         }
     }
+};
+
+custom.sgfCatCheckChangeListener = function (event) {
+    custom.sgfCatEnableds[event.target.id] = event.target.checked;
+    custom.setSGFs();
 };
 
 custom.mouseupListener = function (event) {
@@ -86,8 +112,8 @@ custom.mouseupListener = function (event) {
 };
 
 custom.sgfCatAllBtnClickListener = function () {
-    for (const [key, value] of Object.entries(sgfs)) {
-        value.Enabled = true;
+    for (const key of Object.keys(custom.sgfCatEnableds)) {
+        custom.sgfCatEnableds[key] = true;
         document.getElementById(key).checked = true;
     }
 
@@ -95,21 +121,21 @@ custom.sgfCatAllBtnClickListener = function () {
 };
 
 custom.sgfCatNoneBtnClickListener = function () {
-    for (const [key, value] of Object.entries(sgfs)) {
-        value.Enabled = false;
+    for (const key of Object.keys(custom.sgfCatEnableds)) {
+        custom.sgfCatEnableds[key] = false;
         document.getElementById(key).checked = false;
     }
 };
 
 custom.setSGFs = function () {
     custom.sgfs = [];
-    custom.setSGFsLoop(sgfs);
+    custom.setSGFsLoop("", sgfs);
 
     custom.newBtnClickListener();
 };
 
-custom.setSGFsLoop = function (category) {
-    if (category.hasOwnProperty("Enabled") && !category.Enabled) return;
+custom.setSGFsLoop = function (enabledKey, category) {
+    if (enabledKey != "" && !custom.sgfCatEnableds[enabledKey]) return;
 
     for (const [key, value] of Object.entries(category)) {
         if (key == "Enabled") continue;
@@ -117,14 +143,9 @@ custom.setSGFsLoop = function (category) {
         if (Array.isArray(value)) {
             custom.sgfs.push(value);
         } else {
-            custom.setSGFsLoop(value);
+            custom.setSGFsLoop(enabledKey + key, value);
         }
     }
-};
-
-custom.sgfCatCheckChangeListener = function (event) {
-    sgfs[event.target.id].Enabled = event.target.checked;
-    custom.setSGFs();
 };
 
 custom.boardElementKeydownListener = function (event) {
