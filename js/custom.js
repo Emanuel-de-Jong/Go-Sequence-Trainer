@@ -184,7 +184,7 @@ custom.newBtnClickListener = function () {
 
     if (custom.scramble != "off") custom.scrambleBoard();
 
-    custom.editor.nextNode(custom.sgf[0]);
+    custom.editor.nextNode(custom.sgf[0] + 1);
 
     custom.boardElement.focus({ preventScroll: true });
 };
@@ -238,7 +238,7 @@ custom.resetBtnClickListener = function () {
     custom.mistakesElement.innerHTML = custom.mistakes;
 
     custom.editor.prevNode(1000);
-    custom.editor.nextNode(custom.sgf[0]);
+    custom.editor.nextNode(custom.sgf[0] + 1);
 
     custom.boardElement.focus({ preventScroll: true });
 };

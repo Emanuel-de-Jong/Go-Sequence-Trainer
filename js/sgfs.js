@@ -2,27 +2,20 @@ var sgfs = {
     Reduction: {
         Enabled: true,
         ShoulderHit: {
-            Enabled: false,
+            Enabled: true,
             ToSide: {
                 Enabled: true,
-                X: [
-                    [6, 7, "B[pq]PL[B];B[pn]PL[B];B[jq];W[kp];B[kq];W[lp];B[mr]"],
-                    [6, 7, "B[pq]PL[B];B[pn]PL[B];B[jq];W[kp];B[kq];W[lp];B[jp];W[kn];B[jo];W[mm]"],
-                    [6, 8, "B[pq]PL[B];B[pn]PL[B];B[jq];W[kp];B[kq];W[mp];B[lq];W[mn];B[lp];W[lo];B[ko];W[kn];B[jo]"],
-                    [6, 11, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[kq];W[mp];B[lq];W[mm];B[lp];W[lo];B[mo];W[no];B[mn];W[ln]"],
-                    [6, 11, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[kq];W[mp];B[lq];W[mm];B[lp];W[lo];B[ko];W[kn];B[jo];W[mo]"],
-                    [6, 7, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[kq];W[mp];B[lp];W[lo];B[lq];W[mm]"],
-                ],
+                Extend: [1, 3, "AB[fq][iq][oq][po][pn]AW[co][dq][qp][qo][qm]PL[W];W[jp];B[jq];W[kp]LB[lr:A];B[ip];W[jn];B[io]C[W Good];W[lm]"],
             },
             ToCenter: {
-                Enabled: true,
+                Enabled: false,
                 X:[
                     [6, 6, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[jp];W[ko];B[lr];W[jo]"],
                     [6, 6, "B[pq]PL[B];B[po]PL[B];B[jq];W[kp];B[jp];W[kn];B[ko];W[lo];B[jo];W[mm];B[mq]"],
                 ],
             },
             Base: {
-                Enabled: true,
+                Enabled: false,
                 X: [
                     [10, 11, "B[pq]PL[B];B[qo]PL[B];B[pd]PL[B];B[qg]PL[B];B[jq];W[qm]PL[W];W[qj];B[pk];W[qk];B[pm];W[pn];B[qn];W[pl];B[om]"],
                     [10, 11, "B[pq]PL[B];B[qo]PL[B];B[pd]PL[B];B[qg]PL[B];B[jq];W[qm]PL[W];W[qj];B[pk];W[qk];B[pm];W[pl];B[ol];W[ql];B[pn]"],
@@ -32,11 +25,11 @@ var sgfs = {
     },
 
     Daidaigeima: {
-        Enabled: true,
+        Enabled: false,
         Invasion: {
-            Enabled: true,
+            Enabled: false,
             Attatch: {
-                Enabled: true,
+                Enabled: false,
                 X: [
                     [9, 11, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[io];W[iq];B[gp];W[jq];B[kp];W[kq];B[lp];W[mq]"],
                     [9, 13, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[hp];W[ip];B[iq];W[io];B[jq];W[gp];B[hr];W[ho]"],
@@ -47,7 +40,7 @@ var sgfs = {
                 ],
             },
             ShoulderHit: {
-                Enabled: true,
+                Enabled: false,
                 X: [
                     [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[ip];B[jr];W[ir]"],
                     [9, 12, "B[pq];W[qo];B[op]PL[B];B[jp]PL[B];B[fq];W[dp]PL[W];W[cn]PL[W];W[hq];B[gp];W[jq];B[kq];W[kr]"],
@@ -61,13 +54,13 @@ var sgfs = {
     },
 
     Probing: {
-        Enabled: true,
+        Enabled: false,
         Enclosure: {
-            Enabled: true,
+            Enabled: false,
             C3_4: {
-                Enabled: true,
+                Enabled: false,
                 Knight: {
-                    Enabled: true,
+                    Enabled: false,
                     X: [
                         [8, 10, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[qe];W[pm];B[nq];W[qi]"],
                         [8, 10, "B[qd]PL[B];B[oc]PL[B];B[pq];W[po];B[qo];W[qn];B[qp];W[rd];B[qe];W[qc];B[pc];W[qb];B[re];W[sc]"],
@@ -86,7 +79,7 @@ var sgfs = {
                     ],
                 },
                 LargeKnight: {
-                    Enabled: true,
+                    Enabled: false,
                     X: [
                         [4, 5, "B[qd]PL[B];B[nc];W[dm];W[nd];B[oc];W[ld]"],
                         [4, 5, "B[qd]PL[B];B[nc];W[dm];W[nd];B[mc];W[pd];B[pc];W[qe];B[qc]"],
@@ -100,7 +93,7 @@ var sgfs = {
                     ],
                 },
                 OneSpace: {
-                    Enabled: true,
+                    Enabled: false,
                     X: [
                         [5, 5, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[qc];B[pc];W[rd];B[rc];W[qe];B[qb];W[qh]"],
                         [5, 7, "B[qd]PL[B];B[od]PL[B];B[qj]PL[B];B[jc];W[pc];B[oc];W[qc];B[pd];W[rd];B[re];W[rb];B[sd];W[sc]"],
@@ -113,7 +106,7 @@ var sgfs = {
                     ],
                 },
                 TwoSpace: {
-                    Enabled: true,
+                    Enabled: false,
                     X: [
                         [3, 3, "B[qd]PL[B];B[nd];W[oc];B[nc];W[qc];B[pd];W[pc];B[od];W[rd];B[re];W[rc]"],
                         [4, 7, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[pe];W[od];B[oc]"],
@@ -127,15 +120,15 @@ var sgfs = {
     },
 
     CornerJoseki: {
-        Enabled: true,
+        Enabled: false,
         C4_4: {
-            Enabled: true,
+            Enabled: false,
             Kick: {
-                Enabled: true,
+                Enabled: false,
                 AttackerHighBase: {
-                    Enabled: true,
+                    Enabled: false,
                     Continuation: {
-                        Enabled: true,
+                        Enabled: false,
                         X: [
                             [8, 8, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[pd];W[cq];B[er];W[co];B[cn];W[bn];B[bm];W[bo];B[do];W[br]"],
                             [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hq];W[hp];B[fr];W[gr];B[er];W[gq]"],
@@ -146,9 +139,9 @@ var sgfs = {
                     },
                 },
                 AttackerLowBase: {
-                    Enabled: true,
+                    Enabled: false,
                     Continuation: {
-                        Enabled: true,
+                        Enabled: false,
                         X: [
                             [7, 10, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[ip];B[fr]"],
                             [7, 15, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq];B[pg]PL[B];B[gp];W[ho];B[go];W[gq];B[hn]"],
@@ -171,22 +164,22 @@ var sgfs = {
             },
         },
         C3_4: {
-            Enabled: true,
+            Enabled: false,
             HighApproach: {
-                Enabled: true,
+                Enabled: false,
                 AttackerHighBase: {
-                    Enabled: true,
+                    Enabled: false,
                     Continuation: {
-                        Enabled: true,
+                        Enabled: false,
                         X: [
                             [9, 9, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jd];B[lb];W[lc];B[kc];W[kd];B[mc];W[ld];B[nb];W[md];B[mb]"],
                         ],
                     },
                 },
                 AttackerLowBase: {
-                    Enabled: true,
+                    Enabled: false,
                     Continuation: {
-                        Enabled: true,
+                        Enabled: false,
                         X: [
                             [9, 13, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jc];B[lc]SBKV[47.04];W[pd];B[qc];W[ld];B[lb];W[nb];B[kd];W[kc];B[jd];W[ic];B[id];W[hc];B[md];W[le];B[me];W[lf];B[mc];W[mf];B[ne];W[of];B[oe];W[pe];B[pf];W[nf]"],
                             [9, 13, "B[qd];W[od];B[oc];W[nc];B[pc];W[nd];B[qf];W[jc];B[lc];W[pd];B[qc];W[ld];B[kd];W[kc];B[le];W[md]"],
