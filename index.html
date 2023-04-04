@@ -7,33 +7,59 @@
     <link rel="stylesheet" href="css/custom.css" />
 </head>
 <body>
-    <div id="board-div">
-        <div id="info-div">
-            Mistakes: <span id="mistakes">0</span>
+    <div class="row">
+        <div class="col-3">
+            <div id="sgfCatDiv">
+                <button id="sgfCatAllBtn">All</button>
+                <button id="sgfCatNoneBtn">None</button>
+                <div id="sgfCatChecks"></div>
+            </div>
         </div>
-        <div id="control-div">
-            <button id="newBtn">New</button>
-            <button id="resetBtn">Reset</button>
-            <select id="colorSelect">
-                <option value="A">All</option>
-                <option value="AR">All Rnd</option>
-                <option value="B">Black</option>
-                <option value="BR">Black Rnd</option>
-                <option value="W">White</option>
-                <option value="WR">White Rnd</option>
-            </select>
-            <select id="scrambleSelect">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-                <option value="noDef">No Default</option>
-            </select>
+
+        <div class="col-6">
+            <div id="controlDiv">
+                <button id="newBtn">New</button>
+                <button id="resetBtn">Reset</button>
+                
+                Random
+                <select id="randomSelect">
+                    <option value="off">Off</option>
+                    <option value="shuffled">Shuffled</option>
+                    <option value="full">Full</option>
+                </select>
+    
+                Color
+                <select id="colorSelect">
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="random">Random</option>
+                </select>
+    
+                Scramble
+                <select id="scrambleSelect">
+                    <option value="off">Off</option>
+                    <option value="on">On</option>
+                    <option value="noDef">No Default</option>
+                </select>
+            </div>
+            <div id="boardDiv">
+                <div id="board"></div>
+            </div>
         </div>
-        <div id="board"></div>
+
+        <div class="col-3">
+            <div id="infoDiv">
+                <p>Mistakes: <span id="mistakes">0</span></p>
+                <p id="sgfStartText"></p>
+                <p id="sgfCurrentText"></p>
+            </div>
+        </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="js/besogo.all.js"></script>
+    <script src="js/sgfs.js"></script>
     <script src="js/custom.js"></script>
 
     <script>

@@ -1,15 +1,30 @@
-#info-div {
-    margin-bottom: 20px;
-    font-size: 40px;
+#sgfCatDiv {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+#sgfCatChecks > div {
+    margin-top: 20px;
+}
+
+#sgfCatChecks input[type="checkbox"] {
+    margin-right: 4px;
+}
+
+
+#controlDiv {
+    margin-top: 20px;
     text-align: center;
 }
 
-#control-div {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#board-div {
-    max-width: 700px;
+#boardDiv {
+    max-width: 680px;
     margin: auto;
+    margin-top: 20px;
+}
+
+
+#infoDiv {
+    margin-top: 100px;
+    font-size: 30px;
 }
