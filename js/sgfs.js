@@ -1,4 +1,33 @@
 var sgfs = {
+    Opening: {
+        Enabled: true,
+        AI: {
+            Enabled: true,
+            Black: {
+                Enabled: true,
+                C16_C4: [4, 4, "B[pd];W[cd];B[pp];W[cp];B[eq];W[do];B[ec];W[de];B[nq];W[qc];B[qd];W[pc];B[od];W[nb];B[qk];W[fp];B[gq];W[io];B[dj];W[cl]"],
+                C16_D3: [4, 4, "B[pd];W[cd];B[pp];W[dq];B[ed];W[ec];B[fc];W[dc];B[fd];W[cf];B[co];W[qc];B[pc];W[qd];B[qf];W[qe];B[pe];W[rf];B[qb];W[rb]"],
+                C16_D4: [4, 4, "B[pd];W[cd];B[pp];W[dp];B[ec];W[de];B[cq];W[dq];B[cp];W[cn];B[bn];W[cm];B[bm];W[cl];B[nc];W[qq];B[qp];W[pq];B[nq];W[oq]"],
+                D4_D17: [4, 4, "B[pd];W[dp];B[pp];W[dc];B[cq];W[cp];B[dq];W[ep];B[fq];W[qc];B[qd];W[pc];B[od];W[nb];B[gr];W[cf];B[cl];W[go];B[ci];W[pi]"],
+                D16_Q4: [4, 4, "B[pd];W[dd];B[dp];W[pp];B[nq];W[qn];B[pq];W[qq];B[qr];W[oq];B[pr];W[op];B[or];W[qc];B[qd];W[pc];B[nc];W[oc];B[od];W[nb]"],
+                D17_Q3: [4, 4, "B[pd];W[dc];B[dp];W[pq];B[qo];W[op];B[ce];W[fd];B[qf];W[cn];B[fp];W[ch];B[pl];W[hq];B[jq];W[ho];B[mq];W[jo];B[lo];W[on]"],
+                D17_Q4: [4, 4, "B[pd];W[dc];B[dp];W[pp];B[ce];W[ed];B[qq];W[pq];B[qp];W[qn];B[qo];W[po];B[rn];W[qc];B[pc];W[qd];B[qe];W[re];B[rf];W[qf]"],
+                D17_R4: [4, 4, "B[pd];W[dc];B[dp];W[qp];B[oq];W[po];B[ce];W[ed];B[hc];W[nc];B[kc];W[qc];B[pc];W[qd];B[pe];W[pb];B[ob];W[qb];B[oc];W[qf]"],
+            },
+            White: {
+                Enabled: true,
+                Q16_Q3: [4, 4, "B[pd];W[dp];B[pq];W[dd];B[cq];W[dq];B[cp];W[do];B[bn];W[qc];B[qd];W[pc];B[od];W[nc];B[rc];W[nd];B[qn];W[nf];B[cm];W[iq]"],
+                Q16_R4: [4, 4, "B[pd];W[dp];B[qp];W[dd];B[cc];W[dc];B[cd];W[de];B[bf];W[qc];B[pc];W[qd];B[pe];W[rf];B[ic];W[oq];B[cg];W[po];B[qo];W[pn]"],
+                R16_C4: [4, 4, "B[qd];W[dd];B[cp];W[pp];B[fq];W[oc];B[pf];W[fc];B[nq];W[pn];B[cf];W[oq];B[cd];W[cc];B[bc];W[cb];B[de];W[bd];B[ce];W[bb]"],
+                R16_D3: [4, 4, "B[qd];W[dd];B[dq];W[pp];B[dn];W[oc];B[pf];W[fc];B[cf];W[pn];B[cd];W[cc];B[bc];W[cb];B[de];W[bd];B[ce];W[bb];B[di];W[jq]"],
+                R16_D4: [4, 4, "B[qd];W[dd];B[dp];W[pp];B[nc];W[cq];B[dq];W[cp];B[cn];W[co];B[do];W[bn];B[qn];W[nq];B[fc];W[df];B[qp];W[qq];B[rq];W[qo]"],
+                R16_Q3: [4, 4, "B[qd];W[dd];B[pq];W[dq];B[cc];W[cd];B[dc];W[ed];B[fb];W[oc];B[qn];W[cn];B[pc];W[od];B[pf];W[kd];B[gc];W[di];B[jq];W[hq]"],
+                R16_R4: [4, 4, "B[qd];W[dd];B[qp];W[dp];B[cq];W[cp];B[dq];W[ep];B[fq];W[oc];B[gr];W[oq];B[pf];W[fc];B[cj];W[cl];B[cg];W[ce];B[gc];W[gb]"],
+                Q16_Q4: [4, 4, "B[pd];W[dp];B[pp];W[dd];B[fc];W[qq];B[pq];W[qp];B[po];W[rn];B[cf];W[ef];B[ci];W[nc];B[db];W[cc];B[hc];W[gd];B[oc];W[gc];B[gb];W[hd];B[ic];W[id];B[ec];W[ed];B[fq];W[jd];B[cn];W[jb];B[nd];W[ha]"],
+            },
+        },
+    },
+
     Reduction: {
         Enabled: false,
         ShoulderHit: {

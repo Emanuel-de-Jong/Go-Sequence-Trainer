@@ -184,9 +184,15 @@ custom.newBtnClickListener = function () {
 
     if (custom.scramble != "off") custom.scrambleBoard();
 
-    custom.editor.nextNode(custom.sgf[0] + 1);
+    custom.goToStartMove();
 
     custom.boardElement.focus({ preventScroll: true });
+};
+
+custom.goToStartMove = function () {
+    let startMove = custom.sgf[0];
+    if (custom.editor.getRoot().children[0].setupStones.length > 0) startMove++;
+    custom.editor.nextNode(startMove);
 };
 
 custom.setNewSGF = function () {
@@ -238,7 +244,7 @@ custom.resetBtnClickListener = function () {
     custom.mistakesElement.innerHTML = custom.mistakes;
 
     custom.editor.prevNode(1000);
-    custom.editor.nextNode(custom.sgf[0] + 1);
+    custom.goToStartMove();
 
     custom.boardElement.focus({ preventScroll: true });
 };
