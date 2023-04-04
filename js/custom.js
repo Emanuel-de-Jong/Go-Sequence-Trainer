@@ -356,18 +356,37 @@ custom.scrambleBoard = function () {
     }
 
     if (custom.randomInt(2) == 1 || (noDef && rotateCount == 0)) {
-        custom.flipBoard();
+        custom.rotateBoard(true);
     }
 };
 
-custom.rotateBoard = function () {
-    let newCoords = [];
+custom.rotateBoard = function (flip = false) {
+    let node = custom.editor.getRoot().children[0];
+    let hasSetupNode = node.setupStones.length > 0;
 
-    let node = custom.editor.getRoot();
+    let setupCoords = [];
+    if (hasSetupNode) {
+        for (let i = 0; i < node.setupStones.length; i++) {
+            if (node.setupStones[i] != undefined) {
+                let oldX = Math.floor(i / 19);
+                let oldY = i % 19;
+                let x = flip ? oldX : oldY;
+                let y = 20 - (flip ? oldY : oldX);
+
+                setupCoords.push({
+                    x: x + 1,
+                    y: y - 1,
+                    color: node.setupStones[i]
+                });
+            }
+        }
+    }
+
+    let newCoords = [];
     while (node) {
         if (node.move) {
-            let x = node.move.y;
-            let y = 20 - node.move.x;
+            let x = flip ? node.move.x : node.move.y;
+            let y = 20 - (flip ? node.move.y : node.move.x);
 
             newCoords.push({
                 x: x,
@@ -380,42 +399,23 @@ custom.rotateBoard = function () {
         node = node.children[0];
     }
 
-    let rootNode = custom.editor.getRoot();
-    rootNode.removeChild(rootNode.children[0]);
+    node = custom.editor.getRoot();
+    if (hasSetupNode) node = node.children[0];
 
-    custom.editor.notifyListeners({ treeChange: true, navChange: true });
+    node.removeChild(node.children[0]);
 
-    newCoords.forEach((coord) => {
-        custom.placeStone(coord.x, coord.y, coord.color == -1 ? "playB" : "playW", coord.comment);
-    });
+    if (hasSetupNode) custom.editor.nextNode(1);
 
-    custom.editor.prevNode(1000);
-};
-
-custom.flipBoard = function () {
-    let newCoords = [];
-
-    let node = custom.editor.getRoot();
-    while (node) {
-        if (node.move) {
-            let x = node.move.x;
-            let y = 20 - node.move.y;
-
-            newCoords.push({
-                x: x,
-                y: y,
-                color: node.move.color,
-                comment: node.comment
-            });
+    if (hasSetupNode) {
+        for (let i = 0; i < node.setupStones.length; i++) {
+            if (node.setupStones[i] != undefined) {
+                node.placeSetup(Math.floor(i / 19) + 1, (i % 19) + 1, 0);
+            }
         }
-
-        node = node.children[0];
+        setupCoords.forEach((coord) => {
+            node.placeSetup(coord.x, coord.y, coord.color);
+        });
     }
-
-    let rootNode = custom.editor.getRoot();
-    rootNode.removeChild(rootNode.children[0]);
-
-    custom.editor.notifyListeners({ treeChange: true, navChange: true });
 
     newCoords.forEach((coord) => {
         custom.placeStone(coord.x, coord.y, coord.color == -1 ? "playB" : "playW", coord.comment);
