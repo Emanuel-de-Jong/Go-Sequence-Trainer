@@ -400,11 +400,12 @@ custom.rotateBoard = function (flip = false) {
     }
 
     node = custom.editor.getRoot();
-    if (hasSetupNode) node = node.children[0];
+    if (hasSetupNode) {
+        node = node.children[0];
+        custom.editor.nextNode(1);
+    }
 
     node.removeChild(node.children[0]);
-
-    if (hasSetupNode) custom.editor.nextNode(1);
 
     if (hasSetupNode) {
         for (let i = 0; i < node.setupStones.length; i++) {
@@ -412,6 +413,7 @@ custom.rotateBoard = function (flip = false) {
                 node.placeSetup(Math.floor(i / 19) + 1, (i % 19) + 1, 0);
             }
         }
+
         setupCoords.forEach((coord) => {
             node.placeSetup(coord.x, coord.y, coord.color);
         });
