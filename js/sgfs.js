@@ -1,6 +1,12 @@
 var sgfs = {
+    // https://github.com/Emanuel-de-Jong/GoTrainer-HumanAI/tree/joseki/sgfs
+    Joseki: {
+        Enabled: false,
+    },
+
+    // https://github.com/Emanuel-de-Jong/GoTrainer-HumanAI/tree/perfect-seq/sgfs
     Opening: {
-        Enabled: true,
+        Enabled: false,
         AI: {
             Enabled: true,
             Black: {
@@ -28,6 +34,7 @@ var sgfs = {
         },
     },
 
+    // GoMagic Fearless Invasions https://gomagic.org/lessons/reducing-is-good-enough/
     Reduction: {
         Enabled: false,
         ShoulderHit: {
@@ -54,8 +61,9 @@ var sgfs = {
         },
     },
 
+    // GoMagic Fearless Invasions https://gomagic.org/lessons/daidaigeima/
     Daidaigeima: {
-        Enabled: true,
+        Enabled: false,
         Invasion: {
             Enabled: true,
             Attach: {
@@ -83,11 +91,12 @@ var sgfs = {
     },
 
     Probing: {
-        Enabled: true,
+        Enabled: false,
         Enclosure: {
             Enabled: true,
             C3_4: {
                 Enabled: true,
+                // GoMagic Probing Moves https://gomagic.org/lessons/the-knights-move-enclosure-kejma-simari/
                 Knight: {
                     Enabled: true,
                     Joseki: [1, 1, "AB[pq][qo][qp][qd][oc]AW[dd][dp][po][qn]PL[W]C[B Good];W[pm];B[nq];W[qi];B[qg]"],
@@ -108,6 +117,7 @@ var sgfs = {
                     R17_CrossCut: [1, 4, "AB[qd][oc][pj][jd]PL[W]AE[id];W[qc];B[pc];W[rd];B[rc];W[qe];B[pd];W[sc];B[rb];W[qh]"],
                     O16: [1, 1, "AB[qd][oc]PL[W];W[nd]C[Not a probe because B has 1 choice];B[nc];W[ld]"],
                 },
+                // GoMagic Probing Moves https://gomagic.org/lessons/the-large-knights-move-enclosure-ogejma-simari/
                 LargeKnight: {
                     Enabled: true,
                     Q16: [1, 1, "AB[qd][nc]PL[W];W[pd];B[pc];W[qe];B[od];W[pe];B[rd]"],
@@ -120,6 +130,7 @@ var sgfs = {
                     R17_Extend: [1, 2, "AB[qd][nc]PL[W];W[qc];B[pd];W[pc];B[oc];W[];B[];W[rd]C[W must have enough ko threats];B[re];W[rb];B[sd];W[sc]"],
                     P16: [1, 1, "AB[qd][nc][id][pj]PL[W]C[Not a probe because B has 1 choice];W[od];B[oc];W[pd];B[pc];W[qe];B[rd];W[of]"],
                 },
+                // GoMagic Probing Moves https://gomagic.org/lessons/the-one-space-jump-enclosure-ikken-tobi-simari/
                 OneSpace: {
                     Enabled: true,
                     R15_Hane: [1, 2, "AB[qd][od][jc]PL[W]AE[qj];W[qe];B[pe];W[qf];B[rd];W[pf];B[of];W[og];B[nf];W[qj]"],
@@ -132,15 +143,16 @@ var sgfs = {
                     R17: [1, 1, "AB[qd][od][qj][jc]PL[W];W[qc];B[pc];W[rd];B[rc];W[qe];B[qb];W[qh]"],
                     Q15: [1, 1, "AB[qd][od][qj][jc]PL[W]C[B Good. Not a probe because B has 1 choice];W[pe];B[pd]"],
                 },
+                // GoMagic Probing Moves https://gomagic.org/lessons/the-modern-two-space-jump-enclosure-sovremennoe-niken-tobi-simari/
                 TwoSpace: {
-                    Enabled: false,
-                    X: [
-                        [3, 3, "B[qd]PL[B];B[nd];W[oc];B[nc];W[qc];B[pd];W[pc];B[od];W[rd];B[re];W[rc]"],
-                        [4, 7, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[pe];W[od];B[oc]"],
-                        [4, 10, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[oc];W[rd];B[qe];W[qb];B[re];W[sc]"],
-                        [4, 10, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[oc];W[rd];B[qe];W[re];B[qb];W[qf];B[rc];W[pe];B[qc];W[qi]"],
-                        [4, 8, "B[qd]PL[B];B[nd];W[do]PL[W];W[pd];B[pc];W[qc];B[oc];W[pf];B[rd];W[pi]"],
-                    ],
+                    Enabled: true,
+                    Q16_Atari: [1, 3, "AB[qd][nd]PL[W]C[B Good. Ladder good for B];W[pd];B[pc];W[qc];B[pe]LB[oc:2][od:1]C[The ladder];W[rd];B[od];W[qb];B[re];W[sc]"],
+                    Q16_Extend_Jump: [1, 7, "AB[qd][nd]PL[W]AW[dp];W[pd]C[Ladder good for W];B[pc];W[qc];B[oc];W[];B[];W[pf];B[rd];W[pi];B[];W[qe]"],
+                    Q16_Extend_Atari_ExtendBottom_Atari: [1, 10, "AB[qd][nd]PL[W]AW[dp];W[pd]C[Ladder good for W];B[pc];W[qc];B[oc];W[];B[];W[rd];B[qe];W[re];B[qb];W[qf];B[rc];W[pe];B[qc];W[qi]"],
+                    Q16_Extend_Atari_ExtendBottom_Extend: [1, 10, "AB[qd][nd]PL[W]AW[dp];W[pd]C[Ladder good for W];B[pc];W[qc];B[oc];W[];B[];W[rd];B[qe];W[re];B[qf]C[W Good];W[qb]"],
+                    Q16_Extend_Atari_ExtendTop: [1, 9, "AB[qd][nd]PL[W]AW[dp];W[pd]C[Ladder good for W];B[pc];W[qc];B[oc];W[];B[];W[rd];B[qe];W[qb];B[re];W[sc]"],
+                    P17: [1, 1, "AB[qd][nd]PL[W]C[Bad on empty board. Invasion, not a probe];W[oc];B[nc];W[qc];B[pd];W[pc];B[od];W[rd];B[re];W[rc]"],
+                    N15: [1, 1, "AB[qd][nd]PL[W]C[B Good];W[me];B[md];W[ke]"],
                 },
             },
         },
@@ -152,6 +164,7 @@ var sgfs = {
             Enabled: false,
             C4_4: {
                 Enabled: false,
+                // DGC 01-03-23 DAN https://vimeo.com/803854104/5e3e349534
                 Kick: {
                     Enabled: false,
                     AttackerHighBase: {
@@ -185,6 +198,7 @@ var sgfs = {
             },
             C3_4: {
                 Enabled: false,
+                // DGC 01-03-23 DAN https://vimeo.com/803854104/5e3e349534
                 HighApproach: {
                     Enabled: false,
                     AttackerHighBase: {
@@ -207,6 +221,8 @@ var sgfs = {
 
     LifeDeath: {
         Enabled: false,
+        // https://senseis.xmp.net/?CornerShapes
+        // Go\Learning\Corner L LD.sgf
         Corner: {
             Enabled: false,
             L: {
