@@ -161,35 +161,36 @@ var sgfs = {
     Continuation: {
         Enabled: false,
         Corner: {
-            Enabled: false,
+            Enabled: true,
             C4_4: {
-                Enabled: false,
+                Enabled: true,
                 // DGC 01-03-23 DAN https://vimeo.com/803854104/5e3e349534
                 Kick: {
-                    Enabled: false,
+                    Enabled: true,
                     AttackerHighBase: {
                         Enabled: false,
-                        X: [
-                            [8, 8, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[pd];W[cq];B[er];W[co];B[cn];W[bn];B[bm];W[bo];B[do];W[br]"],
-                            [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hq];W[hp];B[fr];W[gr];B[er];W[gq]"],
-                            [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hq];W[hp];B[fr];W[gr];B[er];W[pc];B[gq];W[iq];B[hr];W[qf];B[gp];W[pj]"],
-                            [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hr];W[hq];B[iq];W[ip];B[gq];W[hp];B[fr];W[gp];B[gr];W[cq]"],
-                            [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jp];B[hr];W[hq];B[fr];W[gr];B[gs];W[gq];B[dr]"],
-                        ],
+                        H2_Attach_HaneConnect: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hr];W[hq];B[fr];W[gr];B[gs];W[gq];B[dr]C[Corner is solid]"],
+                        H2_Attach_HaneRight: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hr];W[hq];B[iq];W[ip];B[gq];W[hp];B[fr];W[gp];B[gr]C[Corner has weaknesses]"],
+                        H2_Kick: [1, 2, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hr];W[gr]C[B Good];B[hp]LB[hn:A][kq:B]C[A and B are miai for B]"],
+                        H3: [1, 1, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hq];W[hp];B[fr];W[gr];B[er];W[];B[gq]C[W Good];W[iq];B[hr];W[];B[gp];W[]LB[ho:A]"],
+                        W_C3: [1, 1, "AB[dn][dp][eq]AW[fq][fp][jp]PL[W];W[cq];B[er];W[co];B[cn];W[bn];B[bm];W[bo];B[do];W[br]"],
                     },
                     AttackerLowBase: {
-                        Enabled: false,
-                        X: [
-                            [7, 10, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[ip];B[fr]"],
-                            [7, 15, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq];B[pg]PL[B];B[gp];W[ho];B[go];W[gq];B[hn]"],
-                            [7, 23, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq]PL[W];W[pg];B[kp];W[lq];B[lp];W[mq];B[gp];W[ho];B[go];W[gq];B[hn];W[io];B[jn]"],
-                            [7, 23, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq]PL[W];W[pg];B[kp];W[lq];B[lp];W[mq];B[gp];W[ho];B[go];W[hn];B[gq];W[cq]"],
-                            [7, 14, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hp];B[hr];W[fr];B[ip];W[ho];B[jp];W[lq]"],
-                            [7, 8, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[hr];B[fr];W[gr];B[er];W[hp]"],
-                            [7, 11, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[fr];B[hp];W[fn];B[hn];W[fl];B[mq]"],
-                            [7, 12, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[fr];B[hp];W[fn];B[jp];W[kp];B[kq]"],
-                            [7, 9, "B[dp];W[fq];B[eq];W[fp];B[dn];W[jq];B[hq];W[fr];B[iq];W[jp];B[ho];W[fn]"],
-                        ],
+                        Enabled: true,
+                        H3_AttachDown_HaneCorner: [1, 5, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[hr];B[];W[];B[fr];W[gr];B[er];W[hp]"],
+                        H3_AttachDown_HaneLeft: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[hr];B[gr]C[W Good];W[fr];B[ir];W[hp];B[iq];W[ip];B[jr];W[kq];B[hs]"],
+                        H3_AttachDown_HaneRight: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[hr];B[ir]C[W Good];W[iq];B[gr];W[hp];B[hs];W[fr];B[jr];W[kq];B[kr]"],
+                        H3_AttachUp_ExtendDown_ExtendRight: [1, 4, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[hp];B[hr];W[ip];B[fr]"],
+                        H3_AttachUp_ExtendDown_ExtendDown_Extend: [1, 4, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[hp];B[hr];W[fr];B[ip];W[ho];B[jp];W[kp]LB[lq:A]"],
+                        H3_AttachUp_ExtendDown_ExtendDown_Cut_Cut_Ladder: [1, 12, "AB[dn][dp][eq][ph]AW[fq][fp][jq]AE[fo];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq];B[gp];W[ho];B[go];W[gq]C[Invader good. Ladder works];B[hn]"],
+                        H3_AttachUp_ExtendDown_ExtendDown_Cut_Cut_Net: [1, 16, "AB[dn][dp][eq]AW[fq][fp][jq][ph]AE[fo];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq];B[kp];W[lq];B[lp];W[mq];B[gp];W[ho];B[go];W[gq]C[Invader good. Net works];B[hn]"],
+                        H3_AttachUp_ExtendDown_ExtendDown_Cut_Extend: [1, 16, "AB[dn][dp][eq]AW[fq][fp][jq][ph]AE[fo];B[hq];W[hp];B[hr];W[fr];B[ip];W[iq];B[jp];W[kq];B[kp];W[lq];B[lp];W[mq];B[gp];W[ho];B[go];W[hn];B[gq];W[cq]"],
+                        H3_AttachUp_Bump: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jq]PL[B]AE[jp];B[hq];W[hp];B[iq]C[W Good];W[ip];B[jr];W[kq];B[kr];W[lq];B[lr];W[mq];B[gr];W[fr]"],
+                        H3_Extend_ExtendUp_JumpRight: [1, 5, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[fr];B[hp];W[fn];B[jp];W[kq];B[kp];W[lq];B[im]"],
+                        H3_Extend_ExtendUp_JumpUp: [1, 5, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[fr];B[hp];W[fn];B[hn];W[fl];B[];W[];B[mq]"],
+                        H3_Extend_ExtendRight: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[fr];B[iq];W[jp];B[ho];W[fn]"],
+                        H3_ShoulderHit: [1, 2, "AB[dn][dp][eq]AW[fq][fp][jq]AE[fo][ph];B[hq];W[ip]C[B Good];B[hn];W[hp];B[];W[];B[fr];W[gr];B[er];W[hr]"],
+                        H2: [1, 1, "AB[dn][dp][eq]AW[fq][fp][jq]PL[B]AE[jp]C[W Good];B[hr];W[hq];B[fr];W[gr];B[gs];W[gq];B[dr]"],
                     },
                 },
                 SanSan: {
