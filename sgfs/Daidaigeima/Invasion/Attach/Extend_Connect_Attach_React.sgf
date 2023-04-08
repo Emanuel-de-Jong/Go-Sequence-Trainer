@@ -1,1 +1,1 @@
-(;GM[1]FF[4]CA[UTF-8]AP[Sabaki:0.52.0]KM[6.5]SZ[19]DT[2023-04-03]AB[fq][jp][op][pq][dk]AW[dp][cn][qo][ql][qi]PL[W]AE[dj];W[hq];B[hp];W[iq]C[One of the ladders doesn't work];B[ip];W[jq];B[dq];W[cq]C[Attacker is dead];B[kq];W[gq];B[gp];W[fr];B[er])
+(;GM[1]FF[4]CA[UTF-8]AP[Sabaki:0.52.0]KM[6.5]SZ[19]DT[2023-04-03]AB[fq][jp][op][pq][dk]AW[dp][cn][qo][ql][qi]PL[W]AE[dj];W[hq]TR[gp]CR[hp];B[hp]TR[ip]CR[iq];W[iq]C[One of the ladders doesn't work];B[ip];W[jq]CR[dq]TR[gq];B[dq]CR[cq]TR[kp];W[cq]C[Attacker is dead];B[kq];W[gq];B[gp];W[fr];B[er])
