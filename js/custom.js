@@ -368,14 +368,14 @@ custom.rotateBoard = function (flip = false) {
     if (hasSetupNode) {
         for (let i = 0; i < node.setupStones.length; i++) {
             if (node.setupStones[i] != undefined) {
-                let oldX = Math.floor(i / 19);
-                let oldY = i % 19;
-                let x = flip ? oldX : oldY;
-                let y = 20 - (flip ? oldY : oldX);
+                let oldX = custom.indexToX(i);
+                let oldY = custom.indexToY(i);
+                let x = (flip ? oldX : oldY) + 1;
+                let y = (20 - (flip ? oldY : oldX)) - 1;
 
                 setupCoords.push({
-                    x: x + 1,
-                    y: y - 1,
+                    x: x,
+                    y: y,
                     color: node.setupStones[i]
                 });
             }
@@ -388,11 +388,24 @@ custom.rotateBoard = function (flip = false) {
             let x = flip ? node.move.x : node.move.y;
             let y = 20 - (flip ? node.move.y : node.move.x);
 
+            let markup = [];
+            for (let i = 0; i < node.markup.length; i++) {
+                if (node.markup[i] != undefined) {
+                    let oldX = custom.indexToX(i);
+                    let oldY = custom.indexToY(i);
+                    let x = (flip ? oldX : oldY) + 1;
+                    let y = (20 - (flip ? oldY : oldX)) - 1;
+
+                    markup[(x-1) * 19 + (y-1)] = node.markup[i];
+                }
+            }
+
             newCoords.push({
                 x: x,
                 y: y,
                 color: node.move.color,
-                comment: node.comment
+                comment: node.comment,
+                markup: markup
             });
         }
 
@@ -410,7 +423,7 @@ custom.rotateBoard = function (flip = false) {
     if (hasSetupNode) {
         for (let i = 0; i < node.setupStones.length; i++) {
             if (node.setupStones[i] != undefined) {
-                node.placeSetup(Math.floor(i / 19) + 1, (i % 19) + 1, 0);
+                node.placeSetup(custom.indexToX(i) + 1, custom.indexToY(i) + 1, 0);
             }
         }
 
@@ -421,9 +434,18 @@ custom.rotateBoard = function (flip = false) {
 
     newCoords.forEach((coord) => {
         custom.placeStone(coord.x, coord.y, coord.color == -1 ? "playB" : "playW", coord.comment);
+        if (coord.markup.length > 0) custom.editor.getCurrent().markup = coord.markup;
     });
 
     custom.editor.prevNode(1000);
+};
+
+custom.indexToX = function (index) {
+    return Math.floor(index / 19);
+};
+
+custom.indexToY = function (index) {
+    return index % 19;
 };
 
 custom.shuffleArray = function (array) {
