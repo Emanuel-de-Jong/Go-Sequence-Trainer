@@ -4,4 +4,3 @@ Check if missing old category
 bool to skip second pass
 Fix labels gone after scramble
 Instead of autoplaying till start of unique sequence, spoil the move (with markup) where it could split
-Comments with B/W don't work with random color
