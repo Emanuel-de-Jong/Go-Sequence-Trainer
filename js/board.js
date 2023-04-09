@@ -20,25 +20,20 @@ board.createBoard = function (sgf) {
     if (sgf) {
         let sgfCode = sgf[2];
 
-        let color = boardSettings.color;
+        let color = settings.color;
         if (color == "random") {
             color = utils.randomInt(2) == 1 ? "black" : "white";
         }
 
         if (color == "white") {
-            let newSGFCode = "";
-            for (let i = 0; i < sgfCode.length; i++) {
-                let char = sgfCode[i];
-                if (char == "B") {
-                    char = "W";
-                } else if (char == "W") {
-                    char = "B";
-                }
+            sgfCode = sgfCode.replaceAll("[W]", "[TEMP]");
+            sgfCode = sgfCode.replaceAll("W[", "TEMP[");
 
-                newSGFCode += char;
-            }
+            sgfCode = sgfCode.replaceAll("[B]", "[W]");
+            sgfCode = sgfCode.replaceAll("B[", "W[");
 
-            sgfCode = newSGFCode;
+            sgfCode = sgfCode.replaceAll("[TEMP]", "[B]");
+            sgfCode = sgfCode.replaceAll("TEMP[", "B[");
         }
 
         boardSettings.sgf = "(;GM[1]FF[4]CA[UTF-8]SZ[19]KM[6.5];" + sgfCode + ")";

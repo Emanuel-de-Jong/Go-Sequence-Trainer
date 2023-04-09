@@ -1,4 +1,3 @@
-Fix random color
 Check if missing old sequence
 Check if missing old category
 Fix playing somewhere removes its old markup. Because its overwritten with cross and then cleared.
