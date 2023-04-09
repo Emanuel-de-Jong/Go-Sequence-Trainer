@@ -973,6 +973,9 @@ besogo.makeBoardDisplay = function(container, editor) {
                         case 'label':
                             element = besogo.svgLabel(x, y, color, editor.getLabel());
                             break;
+                        case 'select':
+                            element = besogo.svgCross(x, y, color);
+                            break;
                     } // END switch (tool)
                     if (element) {
                         element.setAttribute('visibility', 'hidden');
@@ -1576,7 +1579,8 @@ besogo.makeEditor = function(sizeX, sizeY) {
             'triangle', // triangle markup
             'cross', // "X" cross markup
             'block', // filled square markup
-            'label'], // label markup
+            'label', // label markup
+            'select'], // only triggers event
         tool = 'auto', // Currently active tool (default: auto-mode)
         label = "1", // Next label that will be applied
 
@@ -1943,6 +1947,9 @@ besogo.makeEditor = function(sizeX, sizeY) {
                 break;
             case 'label':
                 setMarkup(i, j, label);
+                break;
+            case 'select':
+                notifyListeners({ x: i, y: j, mark: 6 });
                 break;
         }
     }

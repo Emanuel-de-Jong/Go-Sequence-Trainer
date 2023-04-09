@@ -12,7 +12,7 @@ board.createBoard = function (sgf) {
         orient: "portrait",
         panels: "control+tree",
         coord: "western",
-        tool: "cross",
+        tool: "select",
         variants: 2,
         nowheel: true,
     };
@@ -148,10 +148,6 @@ board.isNodePass = function (node) {
     return node.move.x == 0 && node.move.y == 0;
 };
 
-board.removeMarkup = function (coord) {
-    board.editor.getCurrent().markup[(coord.x - 1) * 19 + (coord.y - 1)] = 0;
-};
-
 board.placeStone = function (x, y, tool = "auto", comment) {
     board.editor.setTool(tool);
     board.editor.click(x, y, false);
@@ -160,7 +156,7 @@ board.placeStone = function (x, y, tool = "auto", comment) {
         board.editor.getCurrent().comment = comment;
     }
 
-    board.editor.setTool("cross");
+    board.editor.setTool("select");
 };
 
 board.indexToX = function (index) {

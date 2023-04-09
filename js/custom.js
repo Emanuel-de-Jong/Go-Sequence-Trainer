@@ -143,8 +143,7 @@ custom.passBtnClickListener = function () {
 };
 
 custom.editorListener = function (event) {
-    if (event.markupChange) {
-        board.removeMarkup(event);
+    if (event.mark === 6) {
         custom.play(event.x, event.y);
     } else if (event.navChange) {
         info.setSgfCurrentText(board.editor.getCurrent().comment);
