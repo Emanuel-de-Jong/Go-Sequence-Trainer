@@ -14,9 +14,9 @@ custom.init = function () {
     custom.sgfCurrentTextElement = document.getElementById("sgfCurrentText");
     custom.sgfCatChecksElement = document.getElementById("sgfCatChecks");
 
-    custom.colorSelect.addEventListener("change", (event) => custom.color = event.target.value);
-    custom.randomSelect.addEventListener("change", (event) => custom.random = event.target.value);
-    custom.scrambleSelect.addEventListener("change", (event) => custom.scramble = event.target.value);
+    custom.colorSelect.addEventListener("change", (event) => (custom.color = event.target.value));
+    custom.randomSelect.addEventListener("change", (event) => (custom.random = event.target.value));
+    custom.scrambleSelect.addEventListener("change", (event) => (custom.scramble = event.target.value));
     custom.boardElement.addEventListener("keydown", custom.boardElementKeydownListener);
     document.getElementById("newBtn").addEventListener("click", custom.newBtnClickListener);
     document.getElementById("resetBtn").addEventListener("click", custom.resetBtnClickListener);
@@ -41,12 +41,12 @@ custom.init = function () {
     custom.setSGFs();
 };
 
-custom.createSGFCatEnableds = function() {
+custom.createSGFCatEnableds = function () {
     custom.sgfCatEnableds = {};
     custom.createSGFCatEnabledsLoop("", sgfs);
 };
 
-custom.createSGFCatEnabledsLoop = function(enabledKey, category) {
+custom.createSGFCatEnabledsLoop = function (enabledKey, category) {
     if (category.hasOwnProperty("Enabled")) {
         custom.sgfCatEnableds[enabledKey] = category.Enabled;
     }
@@ -64,7 +64,7 @@ custom.createSGFCatCheckElements = function () {
     custom.createSGFCatCheckElementsLoop("", "", sgfs);
 };
 
-custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, parentDiv = custom.sgfCatChecksElement, depth=0) {
+custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, parentDiv = custom.sgfCatChecksElement, depth = 0) {
     if (enabledKey != "") {
         let span = document.createElement("span");
         span.innerHTML = "";
@@ -75,18 +75,18 @@ custom.createSGFCatCheckElementsLoop = function (enabledKey, name, category, par
         let label = document.createElement("label");
         label.innerHTML = name;
         label.htmlFor = enabledKey;
-    
+
         let input = document.createElement("input");
         input.type = "checkbox";
         input.checked = custom.sgfCatEnableds[enabledKey];
         input.id = enabledKey;
         input.addEventListener("change", custom.sgfCatCheckChangeListener);
-    
+
         let div = document.createElement("div");
         div.appendChild(span);
         div.appendChild(input);
         div.appendChild(label);
-    
+
         parentDiv.appendChild(div);
 
         parentDiv = div;
@@ -310,8 +310,7 @@ custom.editorListener = function (event) {
     if (event.markupChange) {
         custom.removeMarkup(event);
         custom.play(event.x, event.y);
-    }
-    else if (event.navChange) {
+    } else if (event.navChange) {
         custom.sgfCurrentTextElement.innerHTML = custom.editor.getCurrent().comment;
     }
 };
@@ -331,7 +330,7 @@ custom.play = function (x, y) {
     custom.nextNode();
 };
 
-custom.nextNode = function (stopAtPuzzleStart=false) {
+custom.nextNode = function (stopAtPuzzleStart = false) {
     let node = custom.editor.getCurrent();
     if (stopAtPuzzleStart && node.moveNumber > custom.sgf[1] - 1) return;
 
@@ -339,9 +338,7 @@ custom.nextNode = function (stopAtPuzzleStart=false) {
     if (!nextNode) return;
 
     let skipFirstPass = false;
-    if (custom.SHORTEN_DOUBLE_PASS &&
-            custom.isNodePass(nextNode) &&
-            custom.isNodePass(nextNode.children[0])) {
+    if (custom.SHORTEN_DOUBLE_PASS && custom.isNodePass(nextNode) && custom.isNodePass(nextNode.children[0])) {
         skipFirstPass = true;
     }
 
@@ -357,7 +354,7 @@ custom.removeMarkup = function (coord) {
     custom.editor.getCurrent().markup[(coord.x - 1) * 19 + (coord.y - 1)] = 0;
 };
 
-custom.placeStone = function (x, y, tool="auto", comment) {
+custom.placeStone = function (x, y, tool = "auto", comment) {
     custom.editor.setTool(tool);
     custom.editor.click(x, y, false);
 
@@ -392,12 +389,12 @@ custom.rotateBoard = function (flip = false) {
                 let oldX = custom.indexToX(i);
                 let oldY = custom.indexToY(i);
                 let x = (flip ? oldX : oldY) + 1;
-                let y = (20 - (flip ? oldY : oldX)) - 1;
+                let y = 20 - (flip ? oldY : oldX) - 1;
 
                 setupCoords.push({
                     x: x,
                     y: y,
-                    color: node.setupStones[i]
+                    color: node.setupStones[i],
                 });
             }
         }
@@ -415,9 +412,9 @@ custom.rotateBoard = function (flip = false) {
                     let oldX = custom.indexToX(i);
                     let oldY = custom.indexToY(i);
                     let x = (flip ? oldX : oldY) + 1;
-                    let y = (20 - (flip ? oldY : oldX)) - 1;
+                    let y = 20 - (flip ? oldY : oldX) - 1;
 
-                    markup[(x-1) * 19 + (y-1)] = node.markup[i];
+                    markup[(x - 1) * 19 + (y - 1)] = node.markup[i];
                 }
             }
 
@@ -426,7 +423,7 @@ custom.rotateBoard = function (flip = false) {
                 y: y,
                 color: node.move.color,
                 comment: node.comment,
-                markup: markup
+                markup: markup,
             });
         }
 
