@@ -42,12 +42,12 @@ custom.mouseupListener = function (event) {
     switch (event.button) {
         case 3:
             event.preventDefault();
-            custom.nextSGF();
+            custom.pass();
+            // custom.nextNode(true);
             break;
         case 4:
             event.preventDefault();
-            custom.pass();
-            // custom.nextNode(true);
+            custom.nextSGF();
             break;
     }
 };
@@ -69,7 +69,9 @@ custom.setSGFsLoop = function (enabledKey, category) {
             if (key == "X") {
                 custom.sgfs = custom.sgfs.concat(value);
             } else {
-                custom.sgfs.push(value);
+                let sgfs = [...value];
+                sgfs.push(key);
+                custom.sgfs.push(sgfs);
             }
         } else {
             custom.setSGFsLoop(enabledKey + key, value);
