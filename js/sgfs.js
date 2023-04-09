@@ -36,7 +36,7 @@ var sgfs = {
 
     // GoMagic Fearless Invasions https://gomagic.org/lessons/reducing-is-good-enough/
     Reduction: {
-        Enabled: true,
+        Enabled: false,
         ShoulderHit: {
             Enabled: true,
             ToSide: {
@@ -168,7 +168,7 @@ var sgfs = {
                 Kick: {
                     Enabled: true,
                     AttackerHighBase: {
-                        Enabled: false,
+                        Enabled: true,
                         H2_Attach_HaneConnect: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hr];W[hq]CR[fr]TR[iq];B[fr];W[gr];B[gs];W[gq];B[dr]C[Corner is solid]"],
                         H2_Attach_HaneRight: [1, 3, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hr];W[hq]TR[fr]CR[iq];B[iq];W[ip];B[gq];W[hp];B[fr];W[gp];B[gr]C[Corner has weaknesses]"],
                         H2_Kick: [1, 2, "AB[dn][dp][eq]AW[fq][fp][jp]PL[B];B[hr]CR[gr]TR[hq];W[gr]C[Attacker good];B[hp]LB[hn:A][kq:B]C[A and B are miai for attacker]"],
