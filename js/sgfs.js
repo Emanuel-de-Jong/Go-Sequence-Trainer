@@ -36,7 +36,7 @@ var sgfs = {
 
     // GoMagic Fearless Invasions https://gomagic.org/lessons/reducing-is-good-enough/
     Reduction: {
-        Enabled: true,
+        Enabled: false,
         ShoulderHit: {
             Enabled: true,
             ToSide: {

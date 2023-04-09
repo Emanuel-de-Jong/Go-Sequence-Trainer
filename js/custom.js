@@ -1,6 +1,9 @@
 var custom = {};
 
 
+custom.SHORTEN_DOUBLE_PASS = true;
+
+
 custom.init = function () {
     custom.mistakesElement = document.getElementById("mistakes");
     custom.colorSelect = document.getElementById("colorSelect");
@@ -111,10 +114,7 @@ custom.mouseupListener = function (event) {
             break;
         case 4:
             event.preventDefault();
-            let node = custom.editor.getCurrent();
-            if (node.moveNumber <= custom.sgf[1] - 1) {
-                custom.editor.nextNode(1);
-            }
+            custom.nextNode(true);
             break;
     }
 };
@@ -161,16 +161,14 @@ custom.setSGFsLoop = function (enabledKey, category) {
 };
 
 custom.boardElementKeydownListener = function (event) {
-    let node = custom.editor.getCurrent();
-    if (node.moveNumber > custom.sgf[1] - 1) {
-        switch (event.keyCode) {
-            // case 37: // left
-            //     custom.editor.nextNode(1);
-            //     break;
-            case 39: // right
-                custom.editor.prevNode(1);
-                break;
-        }
+    switch (event.keyCode) {
+        // case 37: // left
+        //     custom.editor.nextNode(1);
+        //     break;
+        case 39: // right
+            custom.nextNode(true);
+            custom.editor.prevNode(1);
+            break;
     }
 };
 
@@ -305,31 +303,54 @@ custom.createBoard = function (sgf) {
 };
 
 custom.passBtnClickListener = function () {
-    custom.editor.setTool("auto");
-    custom.editor.click(0, 0, false);
-    custom.editor.setTool("cross");
+    custom.play(0, 0);
 };
 
 custom.editorListener = function (event) {
     if (event.markupChange) {
         custom.removeMarkup(event);
-
-        let node = custom.editor.getCurrent();
-        if (node.moveNumber > custom.sgf[1] - 1) {
-            let nextNode = node.children[0];
-            if (!nextNode) return;
-
-            if (nextNode.move.x != event.x || nextNode.move.y != event.y) {
-                custom.mistakes++;
-                custom.mistakesElement.innerHTML = custom.mistakes;
-            }
-        }
-
-        custom.editor.nextNode(1);
+        custom.play(event.x, event.y);
     }
     else if (event.navChange) {
         custom.sgfCurrentTextElement.innerHTML = custom.editor.getCurrent().comment;
     }
+};
+
+custom.play = function (x, y) {
+    let node = custom.editor.getCurrent();
+    let nextNode = node.children[0];
+    if (!nextNode) return;
+
+    if (node.moveNumber > custom.sgf[1] - 1) {
+        if (nextNode.move.x != x || nextNode.move.y != y) {
+            custom.mistakes++;
+            custom.mistakesElement.innerHTML = custom.mistakes;
+        }
+    }
+
+    custom.nextNode();
+};
+
+custom.nextNode = function (stopAtPuzzleStart=false) {
+    let node = custom.editor.getCurrent();
+    if (stopAtPuzzleStart && node.moveNumber > custom.sgf[1] - 1) return;
+
+    let nextNode = node.children[0];
+    if (!nextNode) return;
+
+    let skipFirstPass = false;
+    if (custom.SHORTEN_DOUBLE_PASS &&
+            custom.isNodePass(nextNode) &&
+            custom.isNodePass(nextNode.children[0])) {
+        skipFirstPass = true;
+    }
+
+    custom.editor.nextNode(skipFirstPass ? 2 : 1);
+};
+
+custom.isNodePass = function (node) {
+    if (!node || !node.move) return false;
+    return node.move.x == 0 && node.move.y == 0;
 };
 
 custom.removeMarkup = function (coord) {
