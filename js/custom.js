@@ -20,7 +20,7 @@ custom.nextSGF = function () {
 
     board.createBoard(custom.sgf);
     board.editor.addListener(custom.editorListener);
-    board.passBtn.addEventListener("click", custom.passBtnClickListener);
+    board.passBtn.addEventListener("click", custom.pass);
 
     if (settings.scramble != "off") board.scrambleBoard();
 
@@ -46,7 +46,8 @@ custom.mouseupListener = function (event) {
             break;
         case 4:
             event.preventDefault();
-            custom.nextNode(true);
+            custom.pass();
+            // custom.nextNode(true);
             break;
     }
 };
@@ -138,7 +139,7 @@ custom.setNewSGF = function () {
     }
 };
 
-custom.passBtnClickListener = function () {
+custom.pass = function () {
     custom.play(0, 0);
 };
 
