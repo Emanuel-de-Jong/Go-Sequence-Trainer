@@ -6,4 +6,4 @@ Learn Go sequences of any kind by hard by going through them over and over again
 
 | | |
 | :---: | :---: |
-| ![](/Screenshots/.png) | ![](/Screenshots/.png) |
+| ![](/Screenshots/1-Page.png) | ![](/Screenshots/.png) |
