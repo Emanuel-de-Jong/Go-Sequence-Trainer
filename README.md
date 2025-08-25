@@ -1,8 +1,8 @@
 # Go Sequence Trainer
 Learn Go sequences of any kind by hard by going through them over and over again.
 
-**Active Development:** <br>
-**Last Change:** <br>
+**Active Development:** 2023-02-04 - 2023-04-09<br>
+**Last Change:** 2023-04-09<br>
 
 | | |
 | :---: | :---: |
