@@ -2,6 +2,7 @@ var custom = {};
 
 
 custom.SHORTEN_DOUBLE_PASS = true;
+custom.AUTO_OPPONENT = true;
 
 
 custom.init = function () {
@@ -165,6 +166,19 @@ custom.play = function (x, y) {
     }
 
     custom.nextNode();
+
+    if (custom.AUTO_OPPONENT) {
+        node = board.editor.getCurrent();
+        nextNode = node.children[0];
+        if (!nextNode) return;
+
+        let userColor = settings.color == "black" ? -1 : 1;
+        if (nextNode.move.color !== userColor) {
+            setTimeout(function () {
+                custom.nextNode();
+            }, 250);
+        }
+    }
 };
 
 custom.nextNode = function (stopAtPuzzleStart = false) {

@@ -9,7 +9,7 @@ var sgfs = {
         },
         Komoku_Approach: {
             Enabled: true,
-            _1_1: [7, 7, "B[dp];W[dd];B[cn];W[pp];B[qd];W[od];B[oc];W[pd];B[pc];W[qe];B[qc];W[nd];B[re];W[qf];B[rf];W[qh]"],
+            _1_1: [3, 3, "W[qd];B[od];W[oc];B[pd];W[pc];B[qe];W[qc];B[nd];W[re];B[qf];W[rf];B[qh]"],
         },
         Komoku_LowApproach: {
             Enabled: true,
