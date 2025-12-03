@@ -1,9 +1,20 @@
 var sgfs = {
-    // https://github.com/Emanuel-de-Jong/GoTrainer-HumanAI/tree/joseki/sgfs
-    Joseki: {
-        Enabled: false,
+    Josekis: {
+        Enabled: true,
+        Star_LowApproach_Pincer: {
+            Enabled: true,
+        },
+        Star_LowApproach_Knight: {
+            Enabled: true,
+        },
+        Komoku_Approach: {
+            Enabled: true,
+            _1_1: [7, 7, "B[dp];W[dd];B[cn];W[pp];B[qd];W[od];B[oc];W[pd];B[pc];W[qe];B[qc];W[nd];B[re];W[qf];B[rf];W[qh]"],
+        },
+        Komoku_LowApproach: {
+            Enabled: true,
+        },
     },
-
     // https://github.com/Emanuel-de-Jong/GoTrainer-HumanAI/tree/perfect-seq/sgfs
     Opening: {
         Enabled: false,
