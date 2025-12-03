@@ -170,7 +170,7 @@ custom.play = function (x, y) {
 
     if (custom.AUTO_OPPONENT) {
         node = board.editor.getCurrent();
-    if (node.children.length == 0) return;
+        if (node.children.length == 0) return;
         nextNode = node.children[0];
 
         let playerColor = settings.color == "black" ? -1 : 1;
@@ -195,15 +195,7 @@ custom.nextNode = function (stopAtPuzzleStart = false) {
     let node = board.editor.getCurrent();
     if (stopAtPuzzleStart && node.moveNumber > custom.sgf[1] - 1) return;
 
-    if (node.children.length == 0) {
-        if (custom.AUTO_NEXT) {
-            setTimeout(function () {
-                custom.nextSGF();
-            }, 500);
-        }
-
-        return;
-    }
+    if (node.children.length == 0) return;
     let nextNode = node.children[0];
 
     let skipFirstPass = false;
@@ -212,4 +204,10 @@ custom.nextNode = function (stopAtPuzzleStart = false) {
     }
 
     board.editor.nextNode(skipFirstPass ? 2 : 1);
+
+    if (custom.AUTO_NEXT && nextNode.children.length == 0) {
+        setTimeout(function () {
+            custom.nextSGF();
+        }, 500);
+    }
 };
