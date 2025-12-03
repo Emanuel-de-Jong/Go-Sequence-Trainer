@@ -3,6 +3,7 @@ var custom = {};
 
 custom.SHORTEN_DOUBLE_PASS = true;
 custom.AUTO_OPPONENT = true;
+custom.AUTO_NEXT = true;
 
 
 custom.init = function () {
@@ -156,8 +157,8 @@ custom.editorListener = function (event) {
 
 custom.play = function (x, y) {
     let node = board.editor.getCurrent();
+    if (node.children.length == 0) return;
     let nextNode = node.children[0];
-    if (!nextNode) return;
 
     if (node.moveNumber > custom.sgf[1] - 1) {
         if (nextNode.move.x != x || nextNode.move.y != y) {
@@ -169,11 +170,20 @@ custom.play = function (x, y) {
 
     if (custom.AUTO_OPPONENT) {
         node = board.editor.getCurrent();
+    if (node.children.length == 0) return;
         nextNode = node.children[0];
-        if (!nextNode) return;
 
-        let userColor = settings.color == "black" ? -1 : 1;
-        if (nextNode.move.color !== userColor) {
+        let playerColor = settings.color == "black" ? -1 : 1;
+        if (settings.color == "random") {
+            let playerNode = board.editor.getRoot();
+            for (let i = 0; i < custom.sgf[1] + 1; i++) {
+                playerNode = playerNode.children[0];
+            }
+
+            playerColor = playerNode.move.color;
+        }
+
+        if (nextNode.move.color !== playerColor) {
             setTimeout(function () {
                 custom.nextNode();
             }, 250);
@@ -185,8 +195,16 @@ custom.nextNode = function (stopAtPuzzleStart = false) {
     let node = board.editor.getCurrent();
     if (stopAtPuzzleStart && node.moveNumber > custom.sgf[1] - 1) return;
 
+    if (node.children.length == 0) {
+        if (custom.AUTO_NEXT) {
+            setTimeout(function () {
+                custom.nextSGF();
+            }, 500);
+        }
+
+        return;
+    }
     let nextNode = node.children[0];
-    if (!nextNode) return;
 
     let skipFirstPass = false;
     if (custom.SHORTEN_DOUBLE_PASS && board.isNodePass(nextNode) && board.isNodePass(nextNode.children[0])) {
