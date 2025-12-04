@@ -43,6 +43,10 @@ var sgfs = {
             _1_3_2: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[of];B[pc];W[nd];B[pd];W[od];B[pg]"],
             _2: [2, 2, "B[qd];W[oc];B[ne];W[qc];B[rc];W[pd];B[qb];W[pc];B[qe];W[pe];B[qf];W[pf];B[pg]"],
             _3: [2, 2, "B[qd];W[oc];B[ne];W[pd];B[qc];W[pf];B[qe];W[pe];B[qg]"],
+            _4_1: [2, 2, "B[qd];W[oc];B[ne];W[pe];B[pd];W[od];B[oe];W[pf];B[md]"],
+            _4_2_1: [2, 2, "B[qd];W[oc];B[ne];W[pe];B[pd];W[od];B[oe];W[qe];B[re];W[rf];B[rd];W[qg];B[mc];W[qb];B[rb];W[ob];B[pg];W[qi];B[pi];W[ra];B[qj]"],
+            _4_2_2_1: [2, 2, "B[qd];W[oc];B[ne];W[pe];B[pd];W[od];B[oe];W[qe];B[re];W[rf];B[rd];W[qg];B[mc];W[qb];B[rb];W[ra];B[pg];W[rc];B[qh]"],
+            _4_2_2_2: [2, 2, "B[qd];W[oc];B[ne];W[pe];B[pd];W[od];B[oe];W[qe];B[re];W[rf];B[rd];W[qg];B[mc];W[qb];B[rb];W[ra];B[pg];W[qi];B[pb]"],
         },
     },
 
