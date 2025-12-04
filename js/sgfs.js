@@ -8,7 +8,8 @@ var sgfs = {
             _2_2_1: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[qc];B[qd];W[rd];B[re];W[rc];B[rf];W[qg];B[qe]"],
             _2_2_2: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[qc];B[qd];W[rd];B[re];W[rc];B[rf];W[qh];B[qi];W[rg];B[qe]"],
             _3_1: [2, 2, "B[pd];W[qf];B[pi];W[nc];B[of];W[qc];B[qd];W[pc];B[od];W[mb]"],
-            _3_2_1: [2, 2, "B[pd];W[qf];B[pi];W[nc];B[of];W[qd];B[qc];W[pc];B[oc]"],
+            _3_2_1_1: [2, 2, "B[pd];W[qf];B[pi];W[nc];B[of];W[qd];B[qc];W[pc];B[oc];W[pb];B[qe];W[rd];B[ob];W[qb];B[re];W[od];B[pe];W[nd]"],
+            _3_2_1_2: [2, 2, "B[pd];W[qf];B[pi];W[nc];B[of];W[qd];B[qc];W[pc];B[oc];W[od];B[pb];W[pe];B[rd];W[pc];B[ob]"],
             _3_2_2: [2, 2, "B[pd];W[qf];B[pi];W[nc];B[of];W[qd];B[qc];W[rc];B[pb];W[re];B[pe]"],
         },
         Star_LowApproach_Knight: {
@@ -36,7 +37,7 @@ var sgfs = {
         Komoku_LowApproach: {
             Enabled: true,
             _1_1: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[nf];B[mf];W[ng];B[me];W[mg];B[mc]"],
-            _1_2: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[nd];B[pd];W[me];B[nf];W[od];B[pb];W[of];B[pg];W[og]"],
+            _1_2: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[nd];B[pd];W[me];B[nf];W[od];B[pg]"],
             _1_3_1_1: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[of];B[pc];W[nd];B[pd];W[me];B[od];W[nf];B[nc];W[mc];B[ob]"],
             _1_3_1_2: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[of];B[pc];W[nd];B[pd];W[me];B[od];W[nc];B[nf];W[og];B[mf];W[lf];B[nh]"],
             _1_3_2: [2, 2, "B[qd];W[oc];B[ne];W[oe];B[qg];W[of];B[pc];W[nd];B[pd];W[od];B[pg]"],

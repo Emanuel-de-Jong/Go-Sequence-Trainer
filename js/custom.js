@@ -208,6 +208,6 @@ custom.nextNode = function (stopAtPuzzleStart = false) {
     if (custom.AUTO_NEXT && nextNode.children.length == 0) {
         setTimeout(function () {
             custom.nextSGF();
-        }, 500);
+        }, 1000);
     }
 };
