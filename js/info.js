@@ -2,6 +2,7 @@ var info = {};
 
 
 info.init = function() {
+    info.sgfNameElement = document.getElementById("sgfName");
     info.mistakesElement = document.getElementById("mistakes");
     info.sgfStartTextElement = document.getElementById("sgfStartText");
     info.sgfCurrentTextElement = document.getElementById("sgfCurrentText");
@@ -9,6 +10,9 @@ info.init = function() {
     info.resetMistakes();
 };
 
+info.setSgfName = function (name) {
+    info.sgfNameElement.innerHTML = name;
+};
 
 info.resetMistakes = function () {
     info.mistakes = 0;

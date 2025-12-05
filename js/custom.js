@@ -3,7 +3,7 @@ var custom = {};
 
 custom.SHORTEN_DOUBLE_PASS = true;
 custom.AUTO_OPPONENT = true;
-custom.AUTO_NEXT = true;
+custom.AUTO_NEXT = false;
 
 
 custom.init = function () {
@@ -140,6 +140,10 @@ custom.setNewSGF = function () {
         do {
             custom.sgf = custom.sgfs[utils.randomInt(custom.sgfs.length)];
         } while (custom.sgf == lastSGF && custom.sgf.length > 1);
+    }
+
+    if (custom.sgf.length >= 4) {
+        info.setSgfName(custom.sgf[3]);
     }
 };
 
