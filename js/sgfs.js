@@ -4,7 +4,11 @@ var sgfs = {
         Star_LowApproach_Pincer: {
             Enabled: true,
             _1: [2, 2, "B[pd];W[qf];B[pi];W[qc];B[qd];W[pc];B[od];W[rd];B[re];W[rc];B[rf];W[nc];B[qg]"],
-            _2_1: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[rd];B[qc]"],
+            _2_1_1_1_1: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[rd];B[qc];W[rc];B[pg];W[pf];B[qg];W[lc];B[me];W[qb];B[pb];W[oc];B[ob];W[nc];B[od];W[qa];B[rf];W[re];B[kd];W[kc]"],
+            _2_1_1_1_2: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[rd];B[qc];W[rc];B[pg];W[pf];B[qg];W[lc];B[me];W[qb];B[pb];W[oc];B[ob];W[nc];B[od];W[qa];B[rf];W[re];B[kd];W[pc];B[mc];W[nb];B[mb];W[qd];B[na];W[qc]"],
+            _2_1_1_2: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[rd];B[qc];W[rc];B[pg];W[pf];B[qg];W[lc];B[me];W[ic];B[rb];W[rf];B[mh];W[rg];B[ri];W[qh];B[og];W[ph];B[oh];W[qi];B[qj];W[rh];B[pj]"],
+            _2_1_2_1: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[rd];B[qc];W[rh];B[qh];W[ri];B[qg];W[rf];B[qj]"],
+            _2_1_2_2: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[rd];B[qc];W[rh];B[qh];W[ri];B[qg];W[rg];B[qe]"],
             _2_2_1: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[qc];B[qd];W[rd];B[re];W[rc];B[rf];W[qg];B[qe]"],
             _2_2_2: [2, 2, "B[pd];W[qf];B[pi];W[of];B[nd];W[qc];B[qd];W[rd];B[re];W[rc];B[rf];W[qh];B[qi];W[rg];B[qe]"],
             _3_1: [2, 2, "B[pd];W[qf];B[pi];W[nc];B[of];W[qc];B[qd];W[pc];B[od];W[mb]"],
